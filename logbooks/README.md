@@ -64,7 +64,7 @@ and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
 
 ### Next goal(s):
 * Limitations of PRISM:
-    - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into explicit models)
+    - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
 * Theory: start reading [PRISM lectures](https://www.prismmodelchecker.org/lectures/pmc/)
 * PRISM: start reading the other tutorials and the manual
 * More PRISM case studies and [survey](https://www.prismmodelchecker.org/papers/arcras-pmc.pdf).
