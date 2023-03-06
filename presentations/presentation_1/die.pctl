@@ -1,0 +1,10 @@
+const int x;
+
+P=? [ F s=7&d=x ]
+
+P>=1/7 [F s=7&d=x]
+
+R=? [ F s=7 ]
+
+R{"steps"}=? [F s=7]
+
