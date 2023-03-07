@@ -1,10 +1,21 @@
-# 
+# Logbooks
+
+(S): Stéphane Nguyen
+(T): Tansen Rahman
+
+(S&T): Both
 
 ## Week 0 & 1: 20.02.2023 - 26.02.2023 & 27.02.2023 - 05.03.2023
 
 Getting started, getting an idea of probabilistic model checking.
 ### Resources consulted:
-* [PRISM website](https://www.prismmodelchecker.org/): Installation of PRISM, discovered that PRISM can be applied on a wide range of probabilistic models:
+* (T)[Project 6: CTL model checker without "pre"](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.469.1817&rep=rep1&type=pdf): Reading the paper before choosing which project to take.  
+
+> The goal of this project is to formalise and implement a simple CTL model checker without "pre".
+Resources:
+CTL Model Checking Based on Forward State Traversal: A paper describing a CTL model checking algorithm based on forward state traversal.
+
+* (S&T)[PRISM website](https://www.prismmodelchecker.org/): Installation of PRISM, discovered that PRISM can be applied on a wide range of probabilistic models:
     - discrete-time Markov chains (DTMCs)
     - continuous-time Markov chains (CTMCs)
     - Markov decision processes (MDPs)
@@ -16,9 +27,9 @@ Getting started, getting an idea of probabilistic model checking.
 and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
 > PRISM incorporates state-of-the art symbolic data structures and algorithms, based on BDDs (Binary Decision Diagrams) and MTBDDs (Multi-Terminal Binary Decision Diagrams)
 
-* [Brief look at PRISM syntax for modelling a PTA: Probabilistic Timed Automata](https://www.prismmodelchecker.org/talks/dave-cav11.pdf): Can intuitively define a PTA (at least the one in the presentation slide)
+* (S)[Brief look at PRISM syntax for modelling a PTA: Probabilistic Timed Automata](https://www.prismmodelchecker.org/talks/dave-cav11.pdf): Can intuitively define a PTA (at least the one in the presentation slide)
 
-* [Tutorial Part 1](https://www.prismmodelchecker.org/tutorial/die.php): Getting started with PRISM on simple dice example (DTMC: Discrete Time Markov Chain).
+* (S&T)[Tutorial Part 1](https://www.prismmodelchecker.org/tutorial/die.php): Getting started with PRISM on simple dice example (DTMC: Discrete Time Markov Chain).
 **PRISM** have at least these:
 
     **Model**
@@ -42,20 +53,22 @@ and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
     - Can change solution methods (e.g MDP solution method from Value Iteration to Policy Iteration or to Linear Programming etc.)
     - Can change "accuracy"/"stopping condition" by changing termination criteria and termination epsilon.
 
-* [(Theory) PCTL](https://en.wikipedia.org/wiki/Probabilistic_CTL): brief look at what it is. Essentially, it is CTL extended to real time probabilistic models. PCTL is used to **check DTMC** models.
+* (S)[(Theory) PCTL](https://en.wikipedia.org/wiki/Probabilistic_CTL): brief look at what it is. Essentially, it is CTL extended to real time probabilistic models. PCTL is used to **check DTMC** models.
     - More flexibility than ALL paths or EXIST one path due to the **probabilities**.
     - More flexibility if want to verify that properties **hold within some time period/unit** (e.g 4 seconds).
 
-* [(Theory) PCTL more formal details and explanation on why it's an extension of CTL](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=ed5c504d718ec782b0c1db81d5fd6c36f268aee4): See section 3 for properties expressible with PCTL.
+* (S)[(Theory) PCTL more formal details and explanation on why it's an extension of CTL](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=ed5c504d718ec782b0c1db81d5fd6c36f268aee4): See section 3 for properties expressible with PCTL.
 
-* [P operator in PRISM](https://www.prismmodelchecker.org/manual/PropertySpecification/ThePOperator):
+* (S)[P operator in PRISM](https://www.prismmodelchecker.org/manual/PropertySpecification/ThePOperator):
     - `P bound [ pathprop ]` informally expresses "the probability that path property pathprop is satisfied by the paths from state s meets the bound bound" (quote from the link)
     - Specifying properties in PRISM does not require users to explicitely specify what model checking to use.
 
-* [PRISM FAQ, Max model size](https://www.prismmodelchecker.org/manual/FrequentlyAskedQuestions/PRISMModelling#max_model_size):
+* (S)[PRISM FAQ, Max model size](https://www.prismmodelchecker.org/manual/FrequentlyAskedQuestions/PRISMModelling#max_model_size):
     - The number of states can be around $10^7$
     - Variable ordering matters:
     > Because PRISM is a symbolic model checker, the amount of memory required to store the probabilistic model can vary (sometime unpredictably) according to several factors. One example is the order in which the variables of your model appear in the model file. In general, there is no definitive answer to what the best ordering is but the following heuristics are a good guide.
+
+* (T)Presentation slides
 
 ### Current objective(s):
 * Understand some limitations of PRISM (about property verification or efficiency/optimization/performance etc.) (e.g order of the lines in the model description affects efficiency due to the construction of BDDs or MTBDDs ([See FAQ of PRISM](https://www.prismmodelchecker.org/manual/FrequentlyAskedQuestions/PRISMModelling#max_model_size))) 
