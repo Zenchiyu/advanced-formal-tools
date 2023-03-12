@@ -84,3 +84,20 @@ and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
 
 ## Issues:
 * Installation on Windows 10 due to Java version: Not fixed yet but no issue installing on linux.
+
+## Week 2: 06.03.2023 - 12.03.2023
+
+### Resources consulted:
+* (S) [Quick peak at computation engines](http://www.prismmodelchecker.org/manual/ConfiguringPRISM/ComputationEngines)
+
+* (S&T) [Quick peak at some case studies](http://www.prismmodelchecker.org/casestudies/index.php). Discovered that we can "combine two such processes in asynchronous parallel composition" in order to create for example multiple philoshophers without rewriting everything because philosophers behave similarly..
+
+### Current objective(s):
+* Same as previously but with a bigger focus on case studies.
+
+### Next goal(s):
+* Limitations of PRISM:
+    - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
+* ~~Theory: start reading [PRISM lectures](https://www.prismmodelchecker.org/lectures/pmc/)~~ (Deemed less important. We must focus on an interesting case study with real life applications)
+* PRISM: start reading the other tutorials and the manual
+* More PRISM case studies and [survey](https://www.prismmodelchecker.org/papers/arcras-pmc.pdf).
