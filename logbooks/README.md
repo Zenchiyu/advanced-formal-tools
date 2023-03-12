@@ -90,6 +90,8 @@ and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
 ### Resources consulted:
 * (S) [Quick peak at computation engines](http://www.prismmodelchecker.org/manual/ConfiguringPRISM/ComputationEngines)
 
+* (S) [Quick peak at PCTL in the PRISM lectures](https://www.prismmodelchecker.org/lectures/pmc/05-dtmc%20model%20checking.pdf): Took a brief look at the syntax and `Prob(X φ)`
+
 * (S&T) [Quick peak at some case studies](http://www.prismmodelchecker.org/casestudies/index.php). Discovered that we can "combine two such processes in asynchronous parallel composition" in order to create for example multiple philoshophers without rewriting everything because philosophers behave similarly..
 
 ### Current objective(s):
