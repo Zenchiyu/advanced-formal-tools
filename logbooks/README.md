@@ -103,3 +103,23 @@ and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
 * ~~Theory: start reading [PRISM lectures](https://www.prismmodelchecker.org/lectures/pmc/)~~ (Deemed less important. We must focus on an interesting case study with real life applications)
 * PRISM: start reading the other tutorials and the manual
 * More PRISM case studies and [survey](https://www.prismmodelchecker.org/papers/arcras-pmc.pdf).
+
+## Week 3: 13.03.2023 - 19.03.2023
+
+### Resources consulted:
+* (S)[PRISM filters](http://www.prismmodelchecker.org/manual/PropertySpecification/Filters): We can get the set of states, check from multiple states instead of just the initial state. How to specify multiple initial states in the model ?
+* (S)[PRISM many expressions](http://www.prismmodelchecker.org/manual/ThePRISMLanguage/Expressions): negation, if and only if, implication, log, modulo etc.
+
+
+### Current objective(s):
+* Same as previously but with a bigger focus on case studies and limitations
+* Limitations of PRISM:
+    - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
+    - Can we have reward distributions ?
+
+* PRISM: start reading the other tutorials and the manual
+
+### Next goal(s):
+
+* ~~Theory: start reading [PRISM lectures](https://www.prismmodelchecker.org/lectures/pmc/)~~ (Deemed less important. We must focus on an interesting case study with real life applications)
+* More PRISM case studies and [survey](https://www.prismmodelchecker.org/papers/arcras-pmc.pdf).
