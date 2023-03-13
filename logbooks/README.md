@@ -125,3 +125,4 @@ and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
 * ~~Theory: start reading [PRISM lectures](https://www.prismmodelchecker.org/lectures/pmc/)~~ (Deemed less important. We must focus on an interesting case study with real life applications)
 * More PRISM case studies and [survey](https://www.prismmodelchecker.org/papers/arcras-pmc.pdf).
 * More on reward distributions ? [Reward based properties](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties)
+* Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
