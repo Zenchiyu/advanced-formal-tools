@@ -113,7 +113,7 @@ and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
 
 ### Current objective(s):
 * Same as previously but with a bigger focus on case studies and limitations
-* Find an nteresting case study with real life applications
+* Find an interesting case study with real life applications
 * Limitations of PRISM:
     - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
     - Can we have reward distributions ?
@@ -126,3 +126,4 @@ and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
 * More PRISM case studies and [survey](https://www.prismmodelchecker.org/papers/arcras-pmc.pdf).
 * More on reward distributions ? [Reward based properties](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties)
 * Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
+* State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
