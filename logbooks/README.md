@@ -9,11 +9,13 @@
 
 Getting started, getting an idea of probabilistic model checking.
 ### Resources consulted:
-* (T)[Project 6: CTL model checker without "pre"](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.469.1817&rep=rep1&type=pdf): Reading the paper before choosing which project to take.  
+* (T)[Project 6: CTL model checker without "pre"](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.469.1817&rep=rep1&type=pdf): Reading the paper before choosing which project to take.
 
 > The goal of this project is to formalise and implement a simple CTL model checker without "pre".
 Resources:
 CTL Model Checking Based on Forward State Traversal: A paper describing a CTL model checking algorithm based on forward state traversal.
+
+We decided to move forward with PRISM as it was more interesting and had less of an initial learning curve.
 
 * (S&T)[PRISM website](https://www.prismmodelchecker.org/): Installation of PRISM, discovered that PRISM can be applied on a wide range of probabilistic models:
     - discrete-time Markov chains (DTMCs)
@@ -92,7 +94,7 @@ and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
 
 * (S) [Quick peak at PCTL in the PRISM lectures](https://www.prismmodelchecker.org/lectures/pmc/05-dtmc%20model%20checking.pdf): Took a brief look at the syntax and `Prob(X φ)`
 
-* (S&T) [Quick peak at some case studies](http://www.prismmodelchecker.org/casestudies/index.php). Discovered that we can "combine two such processes in asynchronous parallel composition" in order to create for example multiple philoshophers without rewriting everything because philosophers behave similarly..
+* (S&T) [Quick peak at some case studies](http://www.prismmodelchecker.org/casestudies/index.php). Discovered that we can "combine two such processes in asynchronous parallel composition" in order to create for example multiple philoshophers without rewriting everything because philosophers behave similarly. Many interesting applications, such as randomized code, detecting security breaches.
 
 ### Current objective(s):
 * Same as previously but with a bigger focus on case studies.
@@ -124,8 +126,9 @@ where `maxr` was 127.
 
 
 ### Current objective(s):
-* Same as previously but with a bigger focus on case studies and limitations
-* Find an interesting case study with real life applications ? Or with games. See [PRISM-games](https://www.prismmodelchecker.org/games/)
+* Look into game case studies using PRISM-games extension. See [PRISM-games](https://www.prismmodelchecker.org/games/).
+* Pick an interesting case study the above or from general [PRISM publications](https://www.prismmodelchecker.org/publ-lists.php).
+* Look into ideas of our own case study. Possible game theory problem, such as markets with buyers and sellers. Can investigate properties like what is the probability that x product is sold out?
 * Find more limitations of PRISM:
     - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
     - Can we have reward distributions ?
@@ -139,12 +142,8 @@ where `maxr` was 127.
                          + 1/(maxr+1) : (receiver'=3) & (y1'=2*127)
 ```
 
-* [Search interesting PRISM publications (both internal and external)](https://www.prismmodelchecker.org/publ-lists.php)
-
 ### Next goal(s):
 
-* ~~Theory: start reading [PRISM lectures](https://www.prismmodelchecker.org/lectures/pmc/)~~ (Deemed less important. We must focus on an interesting case study with real life applications)
-* More PRISM case studies and [survey](https://www.prismmodelchecker.org/papers/arcras-pmc.pdf).
 * More on reward distributions ? [Reward based properties](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties)
 * Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
 * State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
