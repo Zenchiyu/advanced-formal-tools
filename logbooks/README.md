@@ -109,16 +109,37 @@ and discovered that PRISM uses BDDs and MTDDs (Multi terminal decision diagrams)
 ### Resources consulted:
 * (S)[PRISM filters](http://www.prismmodelchecker.org/manual/PropertySpecification/Filters): We can get the set of states, check from multiple states instead of just the initial state. How to specify multiple initial states in the model ?
 * (S)[PRISM many expressions](http://www.prismmodelchecker.org/manual/ThePRISMLanguage/Expressions): negation, if and only if, implication, log, modulo etc.
+* (S)[PRISM limitation, no for loops, no lists or compact way to write the following in the Bluetooth case study](http://www.prismmodelchecker.org/casestudies/bluetooth.php)
+
+```
+[reply]  receiver=2 & y1=0 -> 1/(maxr+1) : (receiver'=3) & (y1'=0) // reply and make random choice
+	                    + 1/(maxr+1) : (receiver'=3) & (y1'=2*1)
+	                    + 1/(maxr+1) : (receiver'=3) & (y1'=2*2)
+	                    etc.
+                         + 1/(maxr+1) : (receiver'=3) & (y1'=2*127)
+```
+where `maxr` was 127.
+* (S&T)[PRISM publications (both internal and external)](https://www.prismmodelchecker.org/publ-lists.php)
+* (S&T)[PRISM benchmark suite](https://www.prismmodelchecker.org/benchmarks/): List of possible interesting properties one can check for different models.
 
 
 ### Current objective(s):
 * Same as previously but with a bigger focus on case studies and limitations
-* Find an interesting case study with real life applications
-* Limitations of PRISM:
+* Find an interesting case study with real life applications ? Or with games. See [PRISM-games](https://www.prismmodelchecker.org/games/)
+* Find more limitations of PRISM:
     - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
     - Can we have reward distributions ?
+    * Known limitation: [no for loops, no lists or compact way to write the following in the Bluetooth case study](http://www.prismmodelchecker.org/casestudies/bluetooth.php)
 
-* PRISM: start reading the other tutorials and the manual
+```
+[reply]  receiver=2 & y1=0 -> 1/(maxr+1) : (receiver'=3) & (y1'=0) // reply and make random choice
+	                    + 1/(maxr+1) : (receiver'=3) & (y1'=2*1)
+	                    + 1/(maxr+1) : (receiver'=3) & (y1'=2*2)
+	                    etc.
+                         + 1/(maxr+1) : (receiver'=3) & (y1'=2*127)
+```
+
+* [Search interesting PRISM publications (both internal and external)](https://www.prismmodelchecker.org/publ-lists.php)
 
 ### Next goal(s):
 
