@@ -158,7 +158,7 @@ where `maxr` was 127.
     - Adding more investors, multiplayer (maybe Turned-based stochastic game in PRISM-games)
     - etc.
 
-We modified the case study to introduce:
+We (S&T) modified the case study to introduce:
 ```
 module my_done_module
     is_done : [0..1] init 0; 
@@ -171,7 +171,7 @@ rewards
     [done] true : v;  // reward from transition [done]
 endrewards
 ```
-see files in `../presentation_2` folder and the next bullet point.
+see files in `../presentation/presentation_2` folder and the next bullet point.
 
 * (S) PRISM limitation; no direct way to check a property on a transition based on a transition label: No direct way for example to ask what is the expected cumulative reward/return from the initial state until reach an absorbing state but where we don't know its explicit expression. Where we only know the transition label from which we can reach this absorbing state.
 
@@ -182,7 +182,7 @@ module my_done_module
     [done] (is_done=0) -> (is_done'=1 );
 endmodule
 ```
-
+and then use for example `E=? [F is_done=1]`.
 
 ### Current objective(s):
 * Look into game case studies using PRISM-games extension. See [PRISM-games](https://www.prismmodelchecker.org/games/).
@@ -191,7 +191,8 @@ endmodule
 * Find more limitations of PRISM:
     - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
     - Can we have reward distributions ?
-    * Known limitation: [no for loops, no lists or compact way to write the following in the Bluetooth case study](http://www.prismmodelchecker.org/casestudies/bluetooth.php)
+    - Known limitation: No direct way to check a property on a transition based on a transition label
+    - Known limitation: [no for loops, no lists or compact way to write the following in the Bluetooth case study](http://www.prismmodelchecker.org/casestudies/bluetooth.php)
 
 ```
 [reply]  receiver=2 & y1=0 -> 1/(maxr+1) : (receiver'=3) & (y1'=0) // reply and make random choice
@@ -200,7 +201,6 @@ endmodule
 	                    etc.
                          + 1/(maxr+1) : (receiver'=3) & (y1'=2*127)
 ```
-    * No direct way to check a property on a transition based on a transition label
 
 ### Next goal(s):
 
