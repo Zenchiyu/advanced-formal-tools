@@ -182,7 +182,23 @@ module my_done_module
     [done] (is_done=0) -> (is_done'=1 );
 endmodule
 ```
-and then use for example `E=? [F is_done=1]`.
+However, if we also have this:
+```
+rewards
+    [done] true : v;  // reward from transition [done]
+endrewards
+```
+It would create infinite rewards because of the absorbing state having the "done" transition that has a transition reward attached to it.
+Therefore, we have to replace our `my_done_module` by:
+```
+module my_done_module
+    is_done : [0..1] init 0; 
+    [done] is_done=0 -> (is_done'=1);
+    // Move the absorbing state to this one below where we don't get any reward !
+    [absorb] is_done=1 -> (is_done'=1);
+endmodule
+```
+We can then verify some properties using `is_done`.
 
 ### Current objective(s):
 * Look into game case studies using PRISM-games extension. See [PRISM-games](https://www.prismmodelchecker.org/games/).
@@ -208,4 +224,8 @@ and then use for example `E=? [F is_done=1]`.
 * Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
 * State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
 
+## Issues:
+* `Rmax=?[F is_done=1]` giving infinite rewards in our modified Futures Market Investor case study. Might be because there's some non-zero proba that we never
+end up in a state with this property. However, `Rmax=?[C<=t]` works/gives values (using simulation or iterative algorithm) that correspond to the case study (see probability to bar at $0.3$ for initial value $v=10$. The maximum expected sale price is 9.5):
 
+![img](../presentations/presentation_2/RmaxCumulative.PNG)
