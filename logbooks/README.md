@@ -162,7 +162,9 @@ We (S&T) modified the case study to introduce:
 ```
 module my_done_module
     is_done : [0..1] init 0; 
-    [done] (is_done=0) -> (is_done'=1 );
+    [done] is_done=0 -> (is_done'=1);
+    // Move the absorbing state to this one below where we don't get any reward !
+    [absorb] is_done=1 -> (is_done'=1);
 endmodule
 ```
 and
@@ -179,7 +181,7 @@ One way is to add a variable that will be used to track the absorbing state via 
 ```
 module my_done_module
     is_done : [0..1] init 0; 
-    [done] (is_done=0) -> (is_done'=1 );
+    [done] true -> (is_done'=1 );
 endmodule
 ```
 However, if we also have this:
@@ -210,14 +212,6 @@ We can then verify some properties using `is_done`.
     - Known limitation: No direct way to check a property on a transition based on a transition label
     - Known limitation: [no for loops, no lists or compact way to write the following in the Bluetooth case study](http://www.prismmodelchecker.org/casestudies/bluetooth.php)
 
-```
-[reply]  receiver=2 & y1=0 -> 1/(maxr+1) : (receiver'=3) & (y1'=0) // reply and make random choice
-	                    + 1/(maxr+1) : (receiver'=3) & (y1'=2*1)
-	                    + 1/(maxr+1) : (receiver'=3) & (y1'=2*2)
-	                    etc.
-                         + 1/(maxr+1) : (receiver'=3) & (y1'=2*127)
-```
-
 ### Next goal(s):
 
 * More on reward distributions ? [Reward based properties](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties)
@@ -225,7 +219,25 @@ We can then verify some properties using `is_done`.
 * State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
 
 ## Issues:
-* `Rmax=?[F is_done=1]` giving infinite rewards in our modified Futures Market Investor case study. Might be because there's some non-zero proba that we never
+* (S) PRISM warning us that we had deadlocks with 
+```
+module my_done_module
+    is_done : [0..1] init 0; 
+    [done] (is_done=0) -> (is_done'=1 );
+endmodule
+```
+We fixed it by writing `true` (includes `(is_done=1)) instead of `(is_done=0)`. However, no need to use these if we use (which is what we're using):
+```
+module my_done_module
+    is_done : [0..1] init 0; 
+    [done] is_done=0 -> (is_done'=1);
+    // Move the absorbing state to this one below where we don't get any reward !
+    [absorb] is_done=1 -> (is_done'=1);
+endmodule
+```
+because `is_done` is always $0$ at the beginning then changes to $1$. From $1$, we can never go back to $0$ so it's fine. The "absorb" transition is the only one used from the absorbing states having `is_done=1`.
+
+* (S) `Rmax=?[F is_done=1]` giving infinite rewards in our modified Futures Market Investor case study. Might be because there's some non-zero proba that we never
 end up in a state with this property. However, `Rmax=?[C<=t]` works/gives values (using simulation or iterative algorithm) that correspond to the case study (see probability to bar at $0.3$ for initial value $v=10$. The maximum expected sale price is 9.5):
 
 ![img](../presentations/presentation_2/RmaxCumulative.PNG)
