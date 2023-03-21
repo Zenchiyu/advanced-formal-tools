@@ -70,7 +70,9 @@ endmodule
 
 module my_done_module
     is_done : [0..1] init 0; 
-    [done] (is_done=0) -> (is_done'=1 );
+    [done] is_done=0 -> (is_done'=1);
+    // Move the absorbing state to this one below where we don't get any reward !
+    [absorb] is_done=1 -> (is_done'=1);
 endmodule
 
 rewards
