@@ -147,3 +147,65 @@ where `maxr` was 127.
 * More on reward distributions ? [Reward based properties](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties)
 * Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
 * State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
+
+## Week 4: 19.03.2023 - 26.03.2023
+
+### Resources consulted:
+* (S)[Turned-Based stochastic game definition](https://www.prismmodelchecker.org/papers/arcras-pmc.pdf): We saw very briefly that a Turned-based stochastic game is an extension of a Markov Decision Process for multiple players where some states from the MDP "uniquely belong" to some players. In other words, a player can only play/make decisions in some states.
+
+* (S&T)[Futures Market Investor case study](https://www.prismmodelchecker.org/casestudies/investor.php): Tansen found this MDP case study. It might be interesting to extend it or take inspiration from it.
+    - Adding more rewards
+    - Adding more investors, multiplayer (maybe Turned-based stochastic game in PRISM-games)
+    - etc.
+
+We modified the case study to introduce:
+```
+module my_done_module
+    is_done : [0..1] init 0; 
+    [done] (is_done=0) -> (is_done'=1 );
+endmodule
+```
+and
+```
+rewards
+    [done] true : v;  // reward from transition [done]
+endrewards
+```
+see files in `../presentation_2` folder and the next bullet point.
+
+* (S) PRISM limitation; no direct way to check a property on a transition based on a transition label: No direct way for example to ask what is the expected cumulative reward/return from the initial state until reach an absorbing state but where we don't know its explicit expression. Where we only know the transition label from which we can reach this absorbing state.
+
+One way is to add a variable that will be used to track the absorbing state via the transition label:
+```
+module my_done_module
+    is_done : [0..1] init 0; 
+    [done] (is_done=0) -> (is_done'=1 );
+endmodule
+```
+
+
+### Current objective(s):
+* Look into game case studies using PRISM-games extension. See [PRISM-games](https://www.prismmodelchecker.org/games/).
+* Pick an interesting case study the above or from general [PRISM publications](https://www.prismmodelchecker.org/publ-lists.php).
+* Look into ideas of our own case study. Possible game theory problem, such as markets with buyers and sellers. Can investigate properties like what is the probability that x product is sold out?
+* Find more limitations of PRISM:
+    - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
+    - Can we have reward distributions ?
+    * Known limitation: [no for loops, no lists or compact way to write the following in the Bluetooth case study](http://www.prismmodelchecker.org/casestudies/bluetooth.php)
+
+```
+[reply]  receiver=2 & y1=0 -> 1/(maxr+1) : (receiver'=3) & (y1'=0) // reply and make random choice
+	                    + 1/(maxr+1) : (receiver'=3) & (y1'=2*1)
+	                    + 1/(maxr+1) : (receiver'=3) & (y1'=2*2)
+	                    etc.
+                         + 1/(maxr+1) : (receiver'=3) & (y1'=2*127)
+```
+    * No direct way to check a property on a transition based on a transition label
+
+### Next goal(s):
+
+* More on reward distributions ? [Reward based properties](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties)
+* Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
+* State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
+
+
