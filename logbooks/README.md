@@ -249,6 +249,14 @@ endmodule
 ```
 We can then verify some properties using `is_done`.
 
+* (S) Provided a Python code plotting a time series for the Futures Market Investor:
+
+![img](../presentations/presentation_2/market_time_series.PNG)
+
+* (S) Provided a Python code showing a surface plot replicated the one in the case study (after exporting PRISM experiment as a list in CSV):
+
+![img](../presentations/presentation_2/prism_results.PNG)
+
 ### Current objective(s):
 * Look into game case studies using PRISM-games extension. See [PRISM-games](https://www.prismmodelchecker.org/games/).
 * Extend the Futures Market Investor case study
