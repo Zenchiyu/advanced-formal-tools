@@ -158,7 +158,8 @@ where `maxr` was 127.
     - Adding more investors, multiplayer (maybe Turned-based stochastic game in PRISM-games)
     - etc.
 
-We (S) modified the case study to introduce:
+We (S&T) modified the case study to introduce:
+
 ```
 module my_done_module
     is_done : [0..1] init 0; 
@@ -174,6 +175,52 @@ rewards
 endrewards
 ```
 see files in `../presentation/presentation_2` folder and the next bullet point.
+
+(T) also modified
+```
+// bar on the investor
+module barred
+    
+    b : [0..1] init 1; // initially cannot bar
+    // b=0 - not barred and b=1 - barred
+
+    [invest] true  -> (b'=0); // do not bar this month
+    [invest] (b=0) -> (b'=1); // bar this month (cannot have barred the previous month) 
+
+endmodule
+```
+to
+```
+// bar on the investor
+module barred
+
+    b : [0..1] init 1; // initially cannot bar
+    // b=0 - not barred and b=1 - barred
+
+    [invest] (b=1) -> (b'=0); // do not bar this month
+    [invest] (b=0) -> 0.3: (b'=1) + 0.7: (b'=0); // bar this month (cannot have barred the previous month) 
+    
+endmodule
+```
+but (S) changed it to:
+```
+// bar on the investor
+module barred
+
+    b : [0..1] init 1; // initially cannot bar
+    // b=0 - not barred and b=1 - barred
+
+    [invest] (b=1) -> (b'=0); // do not bar this month
+    [invest] (b=0) -> p_bar: (b'=1) + (1-p_bar): (b'=0); // bar this month (cannot have barred the previous month) 
+    
+endmodule
+```
+and added constants that can be used in the [experiments](https://www.prismmodelchecker.org/manual/RunningPRISM/Experiments).
+```
+const double p_bar;
+const int v_init;
+```
+and changed `v : [0..10] init 10` into `v : [0..10] init v_init;`
 
 * (S) PRISM limitation; no direct way to check a property on a transition based on a transition label: No direct way for example to ask what is the expected cumulative reward/return from the initial state until reach an absorbing state but where we don't know its explicit expression. Where we only know the transition label from which we can reach this absorbing state.
 
