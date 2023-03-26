@@ -237,11 +237,15 @@ endmodule
 because `is_done` is always $0$ at the beginning then changes to $1$. From $1$, we can never go back to $0$ so it's fine. The "absorb" transition is the only one used from the absorbing states having `is_done=1`.
 
 * (S) `Rmax=?[F is_done=1]` giving infinite rewards in our modified Futures Market Investor case study. Might be because there's some non-zero proba that we never
-end up in a state with this property. However, `Rmax=?[C<=t]` works/gives values (using the iterative algorithm; Value Iteration) that correspond to the case study (see probability to bar at $0.3$ for initial value $v=10$. The maximum expected sale price is 9.5).
+end up in a state with this property. However, `Rmax=?[C<=t]` works/gives values (using the iterative algorithm; Value Iteration) that correspond to the case study (see probability to bar at $0.3$ for initial value $v=10$. The maximum expected sale price is 9.5):
 
-However, the simulation leads to different values:
+![img](../presentations/presentation_2/RmaxCumulativeVI.PNG)
+
+
+However, if we use "simulation", it will lead to different values:
 
 ![img](../presentations/presentation_2/RmaxCumulative.PNG)
 
 PRISM warned us by saying `Warning: For simulation, nondeterminism in MDP is resolved uniformly (resulting in DTMC).` Therefore, we shouldn't use "simulations"
 for these kind of tasks (because there's no reinforcement learning involved).
+
