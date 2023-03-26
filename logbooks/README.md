@@ -236,8 +236,7 @@ endmodule
 ```
 because `is_done` is always $0$ at the beginning then changes to $1$. From $1$, we can never go back to $0$ so it's fine. The "absorb" transition is the only one used from the absorbing states having `is_done=1`.
 
-* (S) `Rmax=?[F is_done=1]` giving infinite rewards in our modified Futures Market Investor case study. Might be because there's some non-zero proba that we never
-end up in a state with this property. However, `Rmax=?[C<=t]` works/gives values (using the iterative algorithm; Value Iteration) that correspond to the case study (see probability to bar at $0.3$ for initial value $v=10$. The maximum expected sale price is 9.5):
+* (S) `Rmax=?[F is_done=1]` giving infinite rewards in our modified Futures Market Investor case study. Might be because there's some [non-zero proba that we never end up in a state with this property](http://www.prismmodelchecker.org/manual/FrequentlyAskedQuestions/PRISMProperties#inf_rewards). However, `Rmax=?[C<=t]` works/gives values (using the iterative algorithm; Value Iteration) that correspond to the case study (see probability to bar at $0.3$ for initial value $v=10$. The maximum expected sale price is 9.5):
 
 ![img](../presentations/presentation_2/RmaxCumulativeVI.PNG)
 
