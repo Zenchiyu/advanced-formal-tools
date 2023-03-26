@@ -150,7 +150,7 @@ where `maxr` was 127.
 
 ## Week 4: 19.03.2023 - 26.03.2023
 
-### Resources consulted:
+### Resources consulted or work done:
 * (S)[Turned-Based stochastic game definition](https://www.prismmodelchecker.org/papers/arcras-pmc.pdf): We saw very briefly that a Turned-based stochastic game is an extension of a Markov Decision Process for multiple players where some states from the MDP "uniquely belong" to some players. In other words, a player can only play/make decisions in some states.
 
 * (S&T)[Futures Market Investor case study](https://www.prismmodelchecker.org/casestudies/investor.php): Tansen found this MDP case study. It might be interesting to extend it or take inspiration from it.
@@ -251,7 +251,7 @@ We can then verify some properties using `is_done`.
 
 * (S) Provided a Python code plotting a time series for the Futures Market Investor:
 
-![img](../presentations/presentation_2/market_time_series.PNG)
+![img](../presentations/presentation_2/market_time_series.png)
 
 * (S) Provided a Python code showing a surface plot replicated the one in the case study (after exporting PRISM experiment as a list in CSV):
 
