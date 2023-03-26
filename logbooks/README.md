@@ -251,11 +251,15 @@ We can then verify some properties using `is_done`.
 
 * (S) Provided a Python code plotting a time series for the Futures Market Investor:
 
-![img](../presentations/presentation_2/market_time_series.png)
+![img](../presentations/presentation_2/images/market_time_series.png)
 
 * (S) Provided a Python code showing a surface plot replicated the one in the case study (after exporting PRISM experiment as a list in CSV):
 
-![img](../presentations/presentation_2/prism_results.PNG)
+![img](../presentations/presentation_2/images/prism_results.PNG)
+
+Surface plot from the case study:
+
+![img](../presentations/presentation_2/images/investor-case-study-results.PNG)
 
 ### Current objective(s):
 * Look into game case studies using PRISM-games extension. See [PRISM-games](https://www.prismmodelchecker.org/games/).
@@ -293,12 +297,12 @@ because `is_done` is always $0$ at the beginning then changes to $1$. From $1$, 
 
 * (S) `Rmax=?[F is_done=1]` giving infinite rewards in our modified Futures Market Investor case study. Might be because there's some [non-zero proba that we never end up in a state with this property](http://www.prismmodelchecker.org/manual/FrequentlyAskedQuestions/PRISMProperties#inf_rewards). However, `Rmax=?[C<=t]` works/gives values (using the iterative algorithm; Value Iteration) that correspond to the case study (see probability to bar at $0.3$ for initial value $v=10$. The maximum expected sale price is 9.5):
 
-![img](../presentations/presentation_2/RmaxCumulativeVI.PNG)
+![img](../presentations/presentation_2/images/RmaxCumulativeVI.PNG)
 
 
 However, if we use "simulation", it will lead to different values:
 
-![img](../presentations/presentation_2/RmaxCumulative.PNG)
+![img](../presentations/presentation_2/images/RmaxCumulative.PNG)
 
 PRISM warned us by saying `Warning: For simulation, nondeterminism in MDP is resolved uniformly (resulting in DTMC).` Therefore, we shouldn't use "simulations"
 for these kind of tasks (because there's no reinforcement learning involved).
