@@ -158,7 +158,7 @@ where `maxr` was 127.
     - Adding more investors, multiplayer (maybe Turned-based stochastic game in PRISM-games)
     - etc.
 
-We (S&T) modified the case study to introduce:
+We (S) modified the case study to introduce:
 ```
 module my_done_module
     is_done : [0..1] init 0; 
@@ -204,8 +204,7 @@ We can then verify some properties using `is_done`.
 
 ### Current objective(s):
 * Look into game case studies using PRISM-games extension. See [PRISM-games](https://www.prismmodelchecker.org/games/).
-* Pick an interesting case study the above or from general [PRISM publications](https://www.prismmodelchecker.org/publ-lists.php).
-* Look into ideas of our own case study. Possible game theory problem, such as markets with buyers and sellers. Can investigate properties like what is the probability that x product is sold out?
+* Extend the Futures Market Investor case study
 * Find more limitations of PRISM:
     - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
     - Can we have reward distributions ?
@@ -226,7 +225,7 @@ module my_done_module
     [done] (is_done=0) -> (is_done'=1 );
 endmodule
 ```
-We fixed it by writing `true` (includes `(is_done=1)) instead of `(is_done=0)`. However, no need to use these if we use (which is what we're using):
+We fixed it by writing `true` (includes `(is_done=1)`) instead of `(is_done=0)` alone. However, no need to use these if we use (which is what we're using):
 ```
 module my_done_module
     is_done : [0..1] init 0; 
@@ -238,6 +237,11 @@ endmodule
 because `is_done` is always $0$ at the beginning then changes to $1$. From $1$, we can never go back to $0$ so it's fine. The "absorb" transition is the only one used from the absorbing states having `is_done=1`.
 
 * (S) `Rmax=?[F is_done=1]` giving infinite rewards in our modified Futures Market Investor case study. Might be because there's some non-zero proba that we never
-end up in a state with this property. However, `Rmax=?[C<=t]` works/gives values (using simulation or iterative algorithm) that correspond to the case study (see probability to bar at $0.3$ for initial value $v=10$. The maximum expected sale price is 9.5):
+end up in a state with this property. However, `Rmax=?[C<=t]` works/gives values (using the iterative algorithm; Value Iteration) that correspond to the case study (see probability to bar at $0.3$ for initial value $v=10$. The maximum expected sale price is 9.5).
+
+However, the simulation leads to different values:
 
 ![img](../presentations/presentation_2/RmaxCumulative.PNG)
+
+PRISM warned us by saying `Warning: For simulation, nondeterminism in MDP is resolved uniformly (resulting in DTMC).` Therefore, we shouldn't use "simulations"
+for these kind of tasks (because there's no reinforcement learning involved).
