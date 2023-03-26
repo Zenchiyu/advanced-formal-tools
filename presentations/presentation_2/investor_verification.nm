@@ -3,6 +3,9 @@
 
 mdp
 
+const double p_bar;
+const int v_init;
+
 // module use to synchronize transitions
 module month
     
@@ -29,19 +32,19 @@ endmodule
 
 // bar on the investor
 module barred
-    
+
     b : [0..1] init 1; // initially cannot bar
     // b=0 - not barred and b=1 - barred
 
     [invest] (b=1) -> (b'=0); // do not bar this month
-    [invest] (b=0) -> 0.3: (b'=1) + 0.7: (b'=0); // bar this month (cannot have barred the previous month) 
-
+    [invest] (b=0) -> p_bar: (b'=1) + (1-p_bar): (b'=0); // bar this month (cannot have barred the previous month) 
+    
 endmodule
 
 // value of the shares
 module value
     
-    v : [0..10] init 10;
+    v : [0..10] init v_init;
 
     [month] true -> p/10 : (v'=min(v+1,c)) + (1-p/10) : (v'=min(max(v-1,0),c));
 
