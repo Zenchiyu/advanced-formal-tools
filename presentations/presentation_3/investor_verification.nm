@@ -14,13 +14,16 @@ module month
     time : [0..tmax] init 0;
     is_done : [0..1] init 0; 
 
-    [invest] (m=0) -> (m'=1); // transitions made at the start of the month synchronize on 'invest'
-    [month] (m=1) -> (m'=0) & (time'=time+1); // transitions made during the month synchronize on 'month'. Increases time too
-    [delivery] (m=0) & (time <= tmax) -> (m'=0); // investor has cashed in shares but can still invest except when time = tmax
+    [invest] (m=0) & (time < tmax) -> (m'=1) & (time'=time+1); // transitions made at the start of the month synchronize on 'invest'. Increases time too
+    
+    [month] (m=1) & (time < tmax) & (is_done=0) -> (m'=0); // transitions made during the month synchronize on 'month'.
+    [month] (m=1) & (time >= tmax) & (is_done=0) -> (is_done'=1);
 
-    [done] (m=0) & (time >= tmax) & (is_done=0) -> (is_done'=1);
-    // absorb
-    [absorb] (is_done=1) -> (is_done'=1);
+    [delivery] (m=0) & (time < tmax) & (is_done=0) -> (m'=0); // investor has cashed in shares but can still invest except when time = tmax
+    [delivery] (m=0) & (time >= tmax) & (is_done=0) -> (is_done'=1);
+
+    // can stop even though the investor didn't cash in the last month.
+    [done] (is_done=1) -> (is_done'=1);
 endmodule
 
 // the investor
