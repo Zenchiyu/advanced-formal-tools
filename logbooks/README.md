@@ -310,7 +310,17 @@ for these kind of tasks (because there's no reinforcement learning involved).
 ## Week 5: 27.03.2023 - 02.04.2023
 
 ### Resources consulted or work done:
-* (S) Extended further the Futures Market Investor with:
+* (T) Brainstormed ideas for extending the Futures Market Investor:
+    - Investor can reinvest into the market.
+    - We can change the end condition to a time limit, so we can look at properties in respect to some time metric.
+    - We can add some time reward to the investments.
+    - We can add another investor and analyze properties using PRISM-games.
+    - We can implement an actual future, where two investors/players need to agree on a price now, and execute the trade later.
+    - We can also implement rollover in order to potentially increase their return.
+    - We will need to add some conditions to avoid a zero-sum game case where nothing in the market occurs, since the players will never be able to agree on a price.
+    - We could add commisions for buying/selling stock -> changes to non-zero sum game.
+
+* (S) Implemented some of the above ideas:
     - Can have more than one investment/delivery within time horizon.
     - Time horizon. Fixed number of months until reaches absorbing state.
     - Variable tracking the month.
