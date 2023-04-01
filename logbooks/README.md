@@ -310,21 +310,22 @@ for these kind of tasks (because there's no reinforcement learning involved).
 ## Week 5: 27.03.2023 - 02.04.2023
 
 ### Resources consulted or work done:
-* (T) Brainstormed ideas for extending the Futures Market Investor:
-    - Investor can reinvest into the market.
-    - We can change the end condition to a time limit, so we can look at properties in respect to some time metric.
-    - We can add some time reward to the investments.
-    - We can add another investor and analyze properties using PRISM-games.
-    - We can implement an actual future, where two investors/players need to agree on a price now, and execute the trade later.
-    - We can also implement rollover in order to potentially increase their return.
-    - We will need to add some conditions to avoid a zero-sum game case where nothing in the market occurs, since the players will never be able to agree on a price.
-    - We could add commisions for buying/selling stock -> changes to non-zero sum game.
+* (S&T) Brainstormed ideas for extending the Futures Market Investor:
+    - (S) Investor can reinvest into the market.
+    - (S) We can change the end condition to a time limit, so we can look at properties in respect to some time metric.
+    - (T) We can add some time reward to the investments.
+    - (S&T) We can add another investor and analyze properties using PRISM-games.
+    - (T) We can implement an actual future, where two investors/players need to agree on a price now, and execute the trade later.
+    - (T) We can also implement rollover in order to potentially increase their return.
+    - (T) We will need to add some conditions to avoid a zero-sum game case where nothing in the market occurs, since the players will never be able to agree on a price.
+    - (T) We could add commissions for buying/selling stock -> changes to non-zero sum game.
 
 * (S) Implemented some of the above ideas:
-    - Can have more than one investment/delivery within time horizon.
+    - Can have more than one investment/delivery within time horizon. This extension breaks "If in a given month the investor does not reserve, then at the very next month the market can temporarily bar the investor from reserving. But the market cannot bar the investor in two consecutive months."
+    - The market cannot bar initially and cannot bar the investor in two consecutive months. The market can bar even if the investor reserved the previous month ! 
     - Time horizon. Fixed number of months until reaches absorbing state.
     - Variable tracking the month.
-    - (TODO) Deliver the last month.
+    - Can also deliver last month
 
 ### Current objective(s):
 * Look into game case studies using PRISM-games extension. See [PRISM-games](https://www.prismmodelchecker.org/games/).
