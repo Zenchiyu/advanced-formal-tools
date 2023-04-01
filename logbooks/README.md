@@ -307,3 +307,26 @@ However, if we use "simulation", it will lead to different values:
 PRISM warned us by saying `Warning: For simulation, nondeterminism in MDP is resolved uniformly (resulting in DTMC).` Therefore, we shouldn't use "simulations"
 for these kind of tasks (because there's no reinforcement learning involved).
 
+## Week 4: 27.03.2023 - 02.04.2023
+
+### Resources consulted or work done:
+* (S) Extended further the Futures Market Investor with:
+    - Can have more than one investment/delivery within time horizon.
+    - Time horizon. Fixed number of months until reaches absorbing state.
+    - Variable tracking the month.
+    - (TODO) Deliver the last month.
+
+### Current objective(s):
+* Look into game case studies using PRISM-games extension. See [PRISM-games](https://www.prismmodelchecker.org/games/).
+* Extend the Futures Market Investor case study
+* Find more limitations of PRISM:
+    - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
+    - Can we have reward distributions ?
+    - Known limitation: No direct way to check a property on a transition based on a transition label
+    - Known limitation: [no for loops, no lists or compact way to write the following in the Bluetooth case study](http://www.prismmodelchecker.org/casestudies/bluetooth.php)
+
+### Next goal(s):
+
+* More on reward distributions ? [Reward based properties](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties)
+* Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
+* State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
