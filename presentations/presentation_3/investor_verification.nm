@@ -1,5 +1,5 @@
-// EXAMPLE: INVESTING IN THE FUTURES MARKET
-// (McIver and Morgan 03)
+// EXTENDED "INVESTING IN THE FUTURES MARKET" from McIver and Morgan 03
+// To finite horizon, multiple investments by Stephane NGUYEN
 
 mdp
 
@@ -13,11 +13,16 @@ module month
     m : [0..1];
     time : [0..tmax] init 0;
     is_done : [0..1] init 0; 
-
-    [invest] (m=0) & (time < tmax) -> (m'=1) & (time'=time+1); // transitions made at the start of the month synchronize on 'invest'. Increases time too
     
-    [month] (m=1) & (time < tmax) & (is_done=0) -> (m'=0); // transitions made during the month synchronize on 'month'.
-    [month] (m=1) & (time >= tmax) & (is_done=0) -> (is_done'=1);
+    // transitions made at the start of the month synchronize on 'invest'. Increases time too
+    [invest] (m=0) & (time < tmax) -> (m'=1) & (time'=time+1);
+    
+    // transitions made during the month synchronize on 'month'.
+    [month] (m=1) & (time < tmax) & (is_done=0) -> (m'=0);
+    // If last month and didn't invest (or tried but was barred), go to absorbing state.
+    [month] ((i=0)|((i=1) &(b=1))) & (m=1) & (time >= tmax) & (is_done=0) -> (is_done'=1);
+
+    [month] (i=1) & (b=0) & (m=1) & (time >= tmax) & (is_done=0) -> (m'=0); // If last month and but invested, still want to cash in the shares.
 
     [delivery] (m=0) & (time < tmax) & (is_done=0) -> (m'=0); // investor has cashed in shares but can still invest except when time = tmax
     [delivery] (m=0) & (time >= tmax) & (is_done=0) -> (is_done'=1);
@@ -35,7 +40,7 @@ module investor
     [invest] (i=0) -> (i'=1); // make reservation
     [invest] (i=1) & (b=1) -> (i'=0); // barred previous month: try again and do nothing
     [invest] (i=1) & (b=1) -> (i'=1); // barred previous month: make reservation
-    [delivery] (i=1) & (b=0) -> (i'=0); // cash in shares (not barred)
+    [delivery] (i=1) & (b=0) -> (i'=0); // cash in shares (not barred), was initially i'=1 instead of i'=0
 
 endmodule
 
@@ -79,14 +84,6 @@ module cap
 
 endmodule
 
-
-// module my_done_module
-//     is_done : [0..1] init 0; 
-//     [done] is_done=0 -> (is_done'=1);
-//     // Move the absorbing state to this one below where we don't get any reward !
-//     [absorb] is_done=1 -> (is_done'=1);
-// endmodule
-
 rewards
-    [delivery] true : v;  // reward from transition [done]
+    [delivery] true : v;  // reward from transition [delivery]
 endrewards
