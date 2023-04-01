@@ -307,7 +307,7 @@ However, if we use "simulation", it will lead to different values:
 PRISM warned us by saying `Warning: For simulation, nondeterminism in MDP is resolved uniformly (resulting in DTMC).` Therefore, we shouldn't use "simulations"
 for these kind of tasks (because there's no reinforcement learning involved).
 
-## Week 4: 27.03.2023 - 02.04.2023
+## Week 5: 27.03.2023 - 02.04.2023
 
 ### Resources consulted or work done:
 * (S) Extended further the Futures Market Investor with:
