@@ -357,11 +357,15 @@ for these kind of tasks (because there's no reinforcement learning involved).
     - `Pmax=? [F<=(2*tmax+1) is_done=1]` What is the best probability to reach the end state within 2 tmax + 1 steps ? If it's a probability of $1$, then it's possible to reach it within the described number of steps.
     - `Pmax=? [F<=tmax is_done=1]` What about within tmax steps ?  If the probability is $0$, it's impossible to finish earlier.
     - More generally: `Pmax=? [F<=t is_done=1]` and `Pmin=? [F<=t is_done=1]` and then can use "experiments" to compute the probabilities for different values of the variable `t`.
-    - Utilizing the second reward structure to get the maximum number of steps and (`R{"steps"}max=? [F is_done=1]`) minimum number of steps to reach the end state.
-    - Computed the maximum reward just like for the market investor case study but this time using our new model. Old model:
-    ![img](../presentations/presentation_2/images/prism_results.PNG)
-    New model:
-    ![img](../presentations/presentation_3/images/prism_results.PNG)
+    - Utilized a second reward structure to get the maximum number of steps and (`R{"steps"}max=? [F is_done=1]`) minimum number of steps to reach the end state. We can see below that the more the market bars, the less the maximum number of steps is until we reach the end (recall that step is not month, it's a transition within the MDP. Moreover, when the investor gets barred, there's no delivery so less step).
+
+    ![img](../presentations/presentation_3/images/max_avg_steps_wrt_p_bar.PNG)
+     
+    - Plotted the maximum reward just like for the market investor case study (by using PRISM experiments, exported the data in CSV and using python for the plot) but this time using our new model. On the left we have the Market Investor Case Study and on the right we have the extended/current model.
+
+![img](../presentations/presentation_2/images/prism_results.PNG){width=260}
+![img](../presentations/presentation_3/images/prism_results.PNG){width=260}
+
 
 
 * (S) Started to think about multiple [reward structures](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties) and nested properties. What are the limitations in terms of nested properties ? Can we reuse a result obtained by verifying another property ?
