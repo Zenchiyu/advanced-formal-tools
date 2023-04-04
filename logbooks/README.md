@@ -343,3 +343,35 @@ for these kind of tasks (because there's no reinforcement learning involved).
 * More on reward distributions ? [Reward based properties](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties)
 * Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
 * State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
+
+## Week 6: 03.04.2023 - 09.04.2023
+
+### Resources consulted or work done:
+
+* (S) Verified some properties based on current extended market investor model:
+    - We already had `Rmax=? [ C<=t ]`
+    - `Rmax=? [ F is_done=1 ]` now works ! So we can use it instead of the previous formula even though the previous one can be used to check implicitely the number of steps.
+    - `Pmin=? [F<=(2*tmax+1) is_done=1]` is it unreachable in the worst case within this amount of steps ? Can we complete all the months within this amount of steps ? (Note that tmax was the maximum number of months). It might be better to rename `tmax`.
+    - `Rmin=? [ F is_done=1 ]` What is the minimum reward you can accumulate until reach the end ? (This needs to be fixed because there's a warning in PRISM stating: `Warning: PRISM hasn't checked for zero-reward loops. Your minimum rewards may be too low...`)
+    - `Pmin=? [F<=(3*tmax+1) is_done=1]` What is the worst probability to reach the end state within 3 tmax + 1 steps (recall that we have the transitions labelled: `invest`, `month`, `delivery` and `done` (once at the end if do not take into account the infinite loop with the absorbing state). The maximum number of steps is when an investor tries to invest every month).
+    - `Pmax=? [F<=(2*tmax+1) is_done=1]` What is the best probability to reach the end state within 2 tmax + 1 steps ? If it's a probability of $1$, then it's possible to reach it within the described number of steps.
+    - `Pmax=? [F<=tmax is_done=1]` What about within tmax steps ?  If the probability is $0$, it's impossible to finish earlier.
+
+* (S) Started to think about multiple reward structures and nested properties. What are the limitations in terms of nested properties ? Can we reuse a result obtained by verifying another property ?
+
+### Current objective(s):
+* Look at multiple modules & reward structures.
+* Is it possible to have a reward property giving some value inside a P property ? 
+* Look into game case studies using PRISM-games extension. See [PRISM-games](https://www.prismmodelchecker.org/games/).
+* Extend the Futures Market Investor case study
+* Find more limitations of PRISM:
+    - What about big models ? Can we import data "into PRISM language" ? (Maybe dive into [explicit models](http://www.prismmodelchecker.org/manual/Appendices/ExplicitModelFiles))
+    - Can we have reward distributions ?
+    - Known limitation: No direct way to check a property on a transition based on a transition label
+    - Known limitation: [no for loops, no lists or compact way to write the following in the Bluetooth case study](http://www.prismmodelchecker.org/casestudies/bluetooth.php)
+
+### Next goal(s):
+
+* More on reward distributions ? [Reward based properties](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties)
+* Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
+* State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
