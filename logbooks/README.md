@@ -357,7 +357,12 @@ for these kind of tasks (because there's no reinforcement learning involved).
     - `Pmax=? [F<=(2*tmax+1) is_done=1]` What is the best probability to reach the end state within 2 tmax + 1 steps ? If it's a probability of $1$, then it's possible to reach it within the described number of steps.
     - `Pmax=? [F<=tmax is_done=1]` What about within tmax steps ?  If the probability is $0$, it's impossible to finish earlier.
     - More generally: `Pmax=? [F<=t is_done=1]` and `Pmin=? [F<=t is_done=1]` and then can use "experiments" to compute the probabilities for different values of the variable `t`.
-    - Work In Progress: utilizing the second reward structure to get the maximum number of steps and minimum number of steps to reach the end state.
+    - Utilizing the second reward structure to get the maximum number of steps and (`R{"steps"}max=? [F is_done=1]`) minimum number of steps to reach the end state.
+    - Computed the maximum reward just like for the market investor case study but this time using our new model. Old model:
+    ![img](../presentations/presentation_2/images/prism_results.PNG)
+    New model:
+    ![img](../presentations/presentation_3/images/prism_results.PNG)
+
 
 * (S) Started to think about multiple [reward structures](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties) and nested properties. What are the limitations in terms of nested properties ? Can we reuse a result obtained by verifying another property ?
 ![image.png](./image.png)
