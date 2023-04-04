@@ -357,7 +357,9 @@ for these kind of tasks (because there's no reinforcement learning involved).
     - `Pmax=? [F<=(2*tmax+1) is_done=1]` What is the best probability to reach the end state within 2 tmax + 1 steps ? If it's a probability of $1$, then it's possible to reach it within the described number of steps.
     - `Pmax=? [F<=tmax is_done=1]` What about within tmax steps ?  If the probability is $0$, it's impossible to finish earlier.
 
-* (S) Started to think about multiple reward structures and nested properties. What are the limitations in terms of nested properties ? Can we reuse a result obtained by verifying another property ?
+* (S) Started to think about multiple [reward structures](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties) and nested properties. What are the limitations in terms of nested properties ? Can we reuse a result obtained by verifying another property ?
+![image.png](./image.png)
+ > If you don't specify a reward structure to the R operator, by default, the first one in the model file is used
 
 ### Current objective(s):
 * Look at multiple modules & reward structures.
