@@ -151,6 +151,8 @@ where `maxr` was 127.
 ## Week 4: 19.03.2023 - 26.03.2023
 
 ### Resources consulted or work done:
+* (T) Prepared presentation slides and content for the second presentation.
+
 * (S)[Turned-Based stochastic game definition](https://www.prismmodelchecker.org/papers/arcras-pmc.pdf): We saw very briefly that a Turned-based stochastic game is an extension of a Markov Decision Process for multiple players where some states from the MDP "uniquely belong" to some players. In other words, a player can only play/make decisions in some states.
 
 * (S&T)[Futures Market Investor case study](https://www.prismmodelchecker.org/casestudies/investor.php): Tansen found this MDP case study. It might be interesting to extend it or take inspiration from it.
@@ -388,3 +390,29 @@ for these kind of tasks (because there's no reinforcement learning involved).
 * More on reward distributions ? [Reward based properties](http://www.prismmodelchecker.org/manual/PropertySpecification/Reward-basedProperties)
 * Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
 * State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
+
+## Week 7: 10.04.2023 - 15.04.2023
+
+### Resources consulted or work done:
+
+* (T) Addressed some of the previous issues:
+    - Can have more than one investment/delivery within time horizon. This extension breaks "If in a given month the investor does not reserve, then at the very next month the market can temporarily bar the investor from reserving. But the market cannot bar the investor in two consecutive months." Debatable whether it needs fixing, as the wording was due to having "invest" be the end state, however we can keep the extension as stated if we add a simple check on the value of i:
+```
+module barred
+/.../
+    [invest] (b=0) & (i=0) -> p_bar: (b'=1) + (1-p_bar): (b'=0); // bar this month (cannot have barred the previous month), only when investor did not invest last month 
+endmodule
+```
+    - We had previously added a simple reward of v, but a time variable reward makes more sense. We can define a monthly interest (double) and consider accrued interest with the following:
+```
+const double interest;
+rewards
+    [delivery] true : v * (1 + pow(interest, (tmax - time)));  // reward from transition [delivery], accrued monthly interest
+    endrewards
+```
+### Current objective(s):
+* Start learning PRISM-games, as many of the remaining ideas for extensions rely on it.
+* Look at multiple modules & reward structures.
+* Is it possible to have a reward property giving some value inside a P property ? 
+* Continue to extend the Futures Market Investor case study
+
