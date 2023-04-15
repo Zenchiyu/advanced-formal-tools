@@ -397,19 +397,23 @@ for these kind of tasks (because there's no reinforcement learning involved).
 
 * (T) Addressed some of the previous issues:
     - Can have more than one investment/delivery within time horizon. This extension breaks "If in a given month the investor does not reserve, then at the very next month the market can temporarily bar the investor from reserving. But the market cannot bar the investor in two consecutive months." Debatable whether it needs fixing, as the wording was due to having "invest" be the end state, however we can keep the extension as stated if we add a simple check on the value of i:
-```
-module barred
-/.../
-    [invest] (b=0) & (i=0) -> p_bar: (b'=1) + (1-p_bar): (b'=0); // bar this month (cannot have barred the previous month), only when investor did not invest last month 
-endmodule
-```
+    ```
+    module barred
+        // bar this month (cannot have barred the previous month), only when investor did not invest last month 
+        [invest] (b=0) & (i=0) -> p_bar: (b'=1) + (1-p_bar): (b'=0); 
+    endmodule
+    ```
+
     - We had previously added a simple reward of v, but a time variable reward makes more sense. We can define a monthly interest (double) and consider accrued interest with the following:
-```
-const double interest;
-rewards
-    [delivery] true : v * (1 + pow(interest, (tmax - time)));  // reward from transition [delivery], accrued monthly interest
+
+    ```
+    const double interest;
+    rewards
+        // reward from transition [delivery], accrued monthly interest
+        [delivery] true : v * (1 + pow(interest, (tmax - time)));  
     endrewards
-```
+    ```
+    
 ### Current objective(s):
 * Start learning PRISM-games, as many of the remaining ideas for extensions rely on it.
 * Look at multiple modules & reward structures.
