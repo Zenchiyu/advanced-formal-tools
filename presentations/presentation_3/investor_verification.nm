@@ -1,12 +1,12 @@
 // EXTENDED "INVESTING IN THE FUTURES MARKET" from McIver and Morgan 03
-// To finite horizon, multiple investments by Stephane NGUYEN
+// To finite horizon, multiple investments by Stephane NGUYEN and Tansen RAHMAN
 
 mdp
 
 const double p_bar;
+const double interest;
 const int v_init;
 const int tmax;
-
 
 // module use to synchronize transitions
 module month
@@ -52,7 +52,7 @@ module barred
     // b=0 - not barred and b=1 - barred
 
     [invest] (b=1) -> (b'=0); // do not bar this month
-    [invest] (b=0) -> p_bar: (b'=1) + (1-p_bar): (b'=0); // bar this month (cannot have barred the previous month) 
+    [invest] (b=0) & (i=0) -> p_bar: (b'=1) + (1-p_bar): (b'=0); // bar this month (cannot have barred the previous month), only when investor did not invest last month 
     
 endmodule
 
@@ -86,7 +86,7 @@ module cap
 endmodule
 
 rewards
-    [delivery] true : v;  // reward from transition [delivery]
+    [delivery] true : v * (1 + pow(interest, (tmax - time)));  // reward from transition [delivery], accrued monthly interest
 endrewards
 
 rewards "steps"
