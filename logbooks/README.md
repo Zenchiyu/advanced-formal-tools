@@ -436,7 +436,7 @@ for these kind of tasks (because there's no reinforcement learning involved).
     ```
     [delivery] (i=1) & (b=0) & (m=1) & (time >= tmax) & (is_done=0) -> (is_done'=1);
     ```
-    - This prevented the value of the share being updated at that last month before being cashed in, which is not what we wanted. This update, which is through the transition state [month], was not processed. This is because the "month" module still has [month] transitions that do not hold.
+    - However, this prevented the value of the share being updated at that last month before being cashed in, which is not what we wanted. This update, which is through the transition state [month], was not processed. This is because the "month" module still has [month] transitions that do not hold. Therefore, I kept the old version (no change).
     - While not explicitly said in PRISM documentation, by investigating the model behaviour, synchronous transitions only occur when all modules have a valid action for that synchronous transition. Modules that do not contain any action for that synchronous transition do not cause any issues. 
     - In short, for a synchronous transition, we have a boolean AND among all modules, and an OR within each individual module.
 * (T) Prepared slides for third presentation.
