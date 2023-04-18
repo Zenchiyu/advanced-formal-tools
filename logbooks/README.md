@@ -447,8 +447,12 @@ for these kind of tasks (because there's no reinforcement learning involved).
 ![](../presentations/presentation_3/images/PRISM_module_investor.png){width=260}
 ![](../presentations/presentation_3/images/PRISM_module_barred.png){width=260}
 
-The first one can be used to understand how everything is synchronized or linked together via the `invest`, `month`. `delivery` and `done` labelled transitions.
+The first one can be used to understand how everything is synchronized or linked together via the `invest`, `month`, `delivery` and `done` labelled transitions.
 In gray, we have some comments. In red, we have transition labels. In green, we have some conditions (if true, transit) and in blue with have probabilities of transitioning ! When one has more than two out-links, it's either due to the non-determinism (when no investor strategy given) or it has some hidden conditions coming from other modules.
+
+There are also dashed lines/links, they are used because we don't exactly go to the exact same state as previously. Even though a line/link is not dashed, it doesn't necessarily mean we go to same state that we already went through it (but it has at least the same variables values and only variables from the module).
+
+Note that the initial state always contains all the variables from the module (and initialized to some values). Moreover, some variables from other modules can be used in a module in the "precondition"/"guard" part (left part of `->` in PRISM models).
 
 
 ### Current objective(s):
