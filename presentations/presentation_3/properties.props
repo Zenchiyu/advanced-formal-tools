@@ -18,3 +18,5 @@ Pmax=? [F<=t is_done=1]
 
 Pmin=? [F<=t is_done=1]
 
+R{"steps"}max=? [F is_done=1]
+
