@@ -20,10 +20,11 @@ module month
     
     // transitions made during the month synchronize on 'month'.
     [month] (m=1) & (time < tmax) & (is_done=0) -> (m'=0);
-    // If last month and didn't invest (or tried but was barred), go to absorbing state.
-    [month] ((i=0)|((i=1) &(b=1))) & (m=1) & (time >= tmax) & (is_done=0) -> (is_done'=1);
 
-    [month] (i=1) & (b=0) & (m=1) & (time >= tmax) & (is_done=0) -> (m'=0); // If last month and but invested, still want to cash in the shares.
+    // If current=last month and didn't invest (or tried but was barred), go to absorbing state.
+    [month] ((i=0)|((i=1) &(b=1))) & (m=1) & (time >= tmax) & (is_done=0) -> (is_done'=1);
+    // If current=last month and but invested, still want to cash in the shares.
+    [month] (i=1) & (b=0) & (m=1) & (time >= tmax) & (is_done=0) -> (m'=0);
 
     [delivery] (m=0) & (time < tmax) & (is_done=0) -> (m'=0); // investor has cashed in shares but can still invest except when time = tmax
     [delivery] (m=0) & (time >= tmax) & (is_done=0) -> (is_done'=1);
