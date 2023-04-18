@@ -453,6 +453,15 @@ In gray, we have some comments. In red, we have transition labels. In green, we 
 There are also dashed lines/links, they are used because we don't exactly go to the exact same state as previously. Even though a line/link is not dashed, it doesn't necessarily mean we go to same state that we already went through it (but it has at least the same variables values and only variables from the module).
 
 Note that the initial state always contains all the variables from the module (and initialized to some values). Moreover, some variables from other modules can be used in a module in the "precondition"/"guard" part (left part of `->` in PRISM models).
+* (S) The extension from Tansen:
+    ```
+    const double interest;
+    rewards
+        // reward from transition [delivery], accrued monthly interest
+        [delivery] true : v * (1 + pow(interest, (tmax - time)));  
+    endrewards
+    ```
+    can be thought of as using the money earned and reinvesting it somewhere and retrieving all the gains the end of the time horizon (includes compounded interest).
 
 
 ### Current objective(s):
