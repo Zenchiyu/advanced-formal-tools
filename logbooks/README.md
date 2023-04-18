@@ -441,7 +441,15 @@ for these kind of tasks (because there's no reinforcement learning involved).
     - In short, for a synchronous transition, we have a boolean AND among all modules, and an OR within each individual module.
 * (T) Prepared slides for third presentation.
 * (T&S) Started writing report.
-* (S) Made a transition model representing our extension to the Investor Case Study, now easier to do with our current understading of synchronous transitions and actions.
+* (S) Made a transition model (for the three first modules as the others can be represented via other ways, see plot for the market price dynamics) representing our extension to the Investor Case Study, now easier to do with our current understanding of synchronous transitions and actions. It can help further understanding the model, extending it, verify it.
+
+![](../presentations/presentation_3/images/PRISM_module_month.png){width=320}
+![](../presentations/presentation_3/images/PRISM_module_investor.png){width=260}
+![](../presentations/presentation_3/images/PRISM_module_barred.png){width=260}
+
+The first one can be used to understand how everything is synchronized or linked together via the `invest`, `month`. `delivery` and `done` labelled transitions.
+In gray, we have some comments. In red, we have transition labels. In green, we have some conditions (if true, transit) and in blue with have probabilities of transitioning ! When one has more than two out-links, it's either due to the non-determinism (when no investor strategy given) or it has some hidden conditions coming from other modules.
+
 
 ### Current objective(s):
 * Continue to extend the Futures Market Investor case study
