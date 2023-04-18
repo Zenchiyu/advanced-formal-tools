@@ -391,7 +391,7 @@ for these kind of tasks (because there's no reinforcement learning involved).
 * Non determinism vs probabilistic ? [MDP non determinism](https://www.prismmodelchecker.org/lectures/biss07/04-mdps.pdf)
 * State-space explosion and "solutions" [Advanced topics](https://www.prismmodelchecker.org/lectures/biss07/11-advanced%20topics.pdf) 
 
-## Week 7: 10.04.2023 - 15.04.2023
+## Week 7: 10.04.2023 - 16.04.2023
 
 ### Resources consulted or work done:
 
@@ -419,4 +419,35 @@ for these kind of tasks (because there's no reinforcement learning involved).
 * Look at multiple modules & reward structures.
 * Is it possible to have a reward property giving some value inside a P property ? 
 * Continue to extend the Futures Market Investor case study
+
+## Week 7: 17.04.2023 - 23.04.2023
+
+### Resources consulted or work done:
+
+* (T) Investigated synchronous behaviour when attempting to simplify code.
+    - The following [month] transition seemed to be useless as it just lead to the [delivery] transition. I attempted to combine the cash-in with the transition to the final state with the following change:
+    ```
+    [month] (i=1) & (b=0) & (m=1) & (time >= tmax) & (is_done=0) -> (m'=0); 
+    // If last month and but invested, still want to cash in the shares.
+
+    [delivery] (m=0) & (time >= tmax) & (is_done=0) -> (is_done'=1);
+    ```
+    to:
+    ```
+    [delivery] (i=1) & (b=0) & (m=1) & (time >= tmax) & (is_done=0) -> (is_done'=1);
+    ```
+    - This prevented the value of the share being updated at that last month before being cashed in, which is not what we wanted. This update, which is through the transition state [month], was not processed. This is because the "month" module still has [month] transitions that do not hold.
+    - While not explicitly said in PRISM documentation, by investigating the model behaviour, synchronous transitions only occur when all modules have a valid action for that synchronous transition. Modules that do not contain any action for that synchronous transition do not cause any issues. 
+    - In short, for a synchronous transition, we have a boolean AND among all modules, and an OR within each individual module.
+* (T) Prepared slides for third presentation.
+* (T&S) Started writing report.
+* (S) Made a transition model representing our extension to the Investor Case Study, now easier to do with our current understading of synchronous transitions and actions.
+
+### Current objective(s):
+* Continue to extend the Futures Market Investor case study
+* Continue writing report.
+* Look at properties to get a feel of how much work the analysis and report will take.
+* Consider implementing the remaining extensions based on PRISM-games, according to the above.
+* Look at multiple modules & reward structures.
+* Is it possible to have a reward property giving some value inside a P property ? 
 
