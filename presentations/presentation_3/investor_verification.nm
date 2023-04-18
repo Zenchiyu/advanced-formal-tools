@@ -86,7 +86,7 @@ module cap
 
 endmodule
 
-// Two rewards, default one below:
+// Two rewards structures, default one below:
 rewards
     [delivery] true : v * (1 + pow(interest, (tmax - time)));  // reward from transition [delivery], accrued monthly interest
 endrewards
