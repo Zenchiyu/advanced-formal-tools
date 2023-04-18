@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 
 if __name__ == "__main__":
-    df = pd.read_csv("./prism_results.csv", skipinitialspace=True)
+    df = pd.read_csv("./prism_results_prior_to_tansen_modif.csv", skipinitialspace=True)
     X = df["p_bar"].values.reshape((11, 11))
     Y = df["v_init"].values.reshape((11, 11))
     Z = df["Result"].values.reshape((11, 11))
