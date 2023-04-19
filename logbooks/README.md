@@ -454,6 +454,15 @@ When one has more than two out-links, it's either due to the non-determinism (wh
 There are also dashed lines/links, they are used because we don't exactly go to the exact same state as previously. Even though a line/link is not dashed, it doesn't necessarily mean we go to same state that we already went through it (but it has at least the same variables values and only variables from the module).
 
 Note that the initial state always contains all the variables from the module (and initialized to some values). Moreover, some variables from other modules can be used in a module in the "precondition"/"guard" part (left part of `->` in PRISM models).
+
+* (S) same but for the model that we used in the previous presentation:
+
+![](../presentations/presentation_3/images/PRISM_module_month_pres2.png){width=320}
+![](../presentations/presentation_3/images/PRISM_module_investor_pres2.png){width=260}
+![](../presentations/presentation_3/images/PRISM_module_barred_pres2.png){width=260}
+
+We can see, via the graph, why the previous model could loop infinitely (no finite time horizon) (fixed by Stephane). One can also see why extending the model where one can cash in many times would make it possible for the market to bar the investor even though he reserved in previous month (issue found by Stephane and fixed by Tansen, see previous week logs). We can also easily see why we can have an infinite cumulative reward if the reward comes from the `done` transition (fixed more than a week ago by Stephane by separating into two transition labels: `delivery` and `done`).
+
 * (S) The extension from Tansen:
     ```
     const double interest;
@@ -463,14 +472,6 @@ Note that the initial state always contains all the variables from the module (a
     endrewards
     ```
     can be thought of as using the money earned and reinvesting it somewhere and retrieving all the gains the end of the time horizon (includes compounded interest).
-
-* (S) same but for the model that we used in the previous presentation:
-
-![](../presentations/presentation_3/images/PRISM_module_month_pres2.png){width=320}
-![](../presentations/presentation_3/images/PRISM_module_investor_pres2.png){width=260}
-![](../presentations/presentation_3/images/PRISM_module_barred_pres2.png){width=260}
-
-We can see, via the graph, why the previous model could loop infinitely (no finite time horizon) (fixed by Stephane). One can also see why extending the model where one can cash in many times would make it possible for the market to bar the investor even though he reserved in previous month (issue found by Stephane and fixed by Tansen, see previous week logs). We can also easily see why we can have an infinite cumulative reward if the reward comes from the `done` transition (fixed more than a week ago by Stephane by separating into two transition labels: `delivery` and `done`).
 
 ### Current objective(s):
 * Continue to extend the Futures Market Investor case study
