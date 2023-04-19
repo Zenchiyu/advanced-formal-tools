@@ -470,7 +470,7 @@ Note that the initial state always contains all the variables from the module (a
 ![](../presentations/presentation_3/images/PRISM_module_investor_pres2.png){width=260}
 ![](../presentations/presentation_3/images/PRISM_module_barred_pres2.png){width=260}
 
-We can see, via the graph, why the previous model could loop infinitely (no finite time horizon) and why extending the model where one can cash in many times would make it possible for the market to bar the investor even though he reserved in previous month (fixed previous week by Tansen). We can also easily see why we can have an infinite cumulative reward if the reward comes from the `done` transition (fixed more than a week ago by Stephane by separating into two transition labels: `delivery` and `done`).
+We can see, via the graph, why the previous model could loop infinitely (no finite time horizon) (fixed by Stephane). One can also see why extending the model where one can cash in many times would make it possible for the market to bar the investor even though he reserved in previous month (issue found by Stephane and fixed by Tansen, see previous week logs). We can also easily see why we can have an infinite cumulative reward if the reward comes from the `done` transition (fixed more than a week ago by Stephane by separating into two transition labels: `delivery` and `done`).
 
 ### Current objective(s):
 * Continue to extend the Futures Market Investor case study
