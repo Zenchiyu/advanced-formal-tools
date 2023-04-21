@@ -484,7 +484,7 @@ Pmin=? [ F<=t is_done=1 ]
 R{"steps"}max=? [ F is_done=1 ]
 R{"steps"}min=? [ F is_done=1 ]
 ```
-* (S): Used PRISM CLI to get experiments' results for $4$ quantitative properties we specified previously.
+* (S): Used PRISM CLI to get experiments' results for $4$ quantitative properties we specified previously and for interest=0, tmax=12 months.
 
 ```
 prism investor_verification.nm properties.props -prop 1,2,5,6 -const p_bar=0:0.1:1,interest=0,v_init=0:1:10,tmax=12 -exportresults all_res.csv:csv
@@ -493,8 +493,18 @@ prism investor_verification.nm properties.props -prop 1,2,5,6 -const p_bar=0:0.1
 where the property number corresponds to the property order in the `properties.props` file in which they appear.
 
 * (S): Used Python to show the results via surface plots:
-![](../presentation/presentation_3/python-codes/all_res.PNG)
+![](../presentations/presentation_3/python-codes/all_res.PNG)
 
+where within tmax=12 months with no reinvestment into a bank or whatsoever (meaning interest=0):
+ - The first property (top left) shows the maximum cumulative reward/money the investor can get. We can see that the less likely the market bars, the higher the maximum reward was expected.
+ - The second property (top right) shows the minimum cumulative reward/money the investor can get. It's $0$ because the investor can just do `noop` all the time. In other words, the investor never reserves. Note that it's independant of `v_init` and `p_bar`.
+ - The third property (bottom left) shows the maximum number of steps that the investor can get. We can see that it's independant of `v_init` but decreases as the `p_bar` increases. The maximum number of steps is always when the investor always reserves.
+ In particular;
+    - When the market never bars, the maximum number of steps is 3tmax$=3\cdot12=36$.
+    - When the market always bars when it can, the maximum number of steps is $2 \cdot tmax/2 + 3\cdot tmax/2 = 12 + 18 = 30$ because the market bars only at second, fourth, sixth, ..., 12 month.
+ - The fourth property (bottom right) shows the minimum number of steps that the investor can get. We can see that it's independant of both `v_init` and `p_bar`. The minimum number of steps is when the investor never reserves and the value is 2tmax$=2\cdot12=24$. We can see some weird colors due to the slight deviation from $24$ and this might be due to the iterative algorithm.
+
+See my graphical representation of the module `month` for more intuition.
 
 
 ### Current objective(s):
@@ -504,4 +514,5 @@ where the property number corresponds to the property order in the `properties.p
 * Consider implementing the remaining extensions based on PRISM-games, according to the above.
 * Look at multiple modules & reward structures.
 * Is it possible to have a reward property giving some value inside a P property ? 
-
+* Try to observe the effect of changing the `interest`
+* Try some properties starting from some given state (by using filters).
