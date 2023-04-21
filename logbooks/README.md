@@ -514,5 +514,7 @@ See my graphical representation of the module `month` for more intuition.
 * Consider implementing the remaining extensions based on PRISM-games, according to the above.
 * Look at multiple modules & reward structures.
 * Is it possible to have a reward property giving some value inside a P property ? 
-* Try to observe the effect of changing the `interest`
+* Try to observe the effect of changing the `interest` (and visualize via plots) (note that the interest rate is fixed)
+* Try to observe the effect of `Pmax=? [ F<=t is_done=1 ]`, `Pmin=? [ F<=t is_done=1 ]` again but in a visual way.
 * Try some properties starting from some given state (by using filters).
+* Find a better way to incrementally extend the model without impacting unvoluntarily some previous results.
