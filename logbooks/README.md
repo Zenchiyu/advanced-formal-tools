@@ -473,6 +473,30 @@ We can see, via the graph, why the previous model could loop infinitely (no fini
     ```
     can be thought of as using the money earned and reinvesting it somewhere and retrieving all the gains the end of the time horizon (includes compounded interest).
 
+* (S): Renamed `properties.props` to `all_properties.props` and created `properties.props` containing only $6$ properties:
+```
+const int t;
+
+Rmax=? [ F is_done=1 ]
+Rmin=? [ F is_done=1 ]
+Pmax=? [ F<=t is_done=1 ]
+Pmin=? [ F<=t is_done=1 ]
+R{"steps"}max=? [ F is_done=1 ]
+R{"steps"}min=? [ F is_done=1 ]
+```
+* (S): Used PRISM CLI to get experiments' results for $4$ quantitative properties we specified previously.
+
+```
+prism investor_verification.nm properties.props -prop 1,2,5,6 -const p_bar=0:0.1:1,interest=0,v_init=0:1:10,tmax=12 -exportresults all_res.csv:csv
+```
+
+where the property number corresponds to the property order in the `properties.props` file in which they appear.
+
+* (S): Used Python to show the results via surface plots:
+![](../presentation/presentation_3/python-codes/all_res.PNG)
+
+
+
 ### Current objective(s):
 * Continue to extend the Futures Market Investor case study
 * Continue writing report.
