@@ -420,7 +420,7 @@ for these kind of tasks (because there's no reinforcement learning involved).
 * Is it possible to have a reward property giving some value inside a P property ? 
 * Continue to extend the Futures Market Investor case study
 
-## Week 7: 17.04.2023 - 23.04.2023
+## Week 8: 17.04.2023 - 23.04.2023
 
 ### Resources consulted or work done:
 
