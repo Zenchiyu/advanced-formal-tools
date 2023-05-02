@@ -523,7 +523,7 @@ See my graphical representation of the module `month` for more intuition.
 
 ### Resources consulted or work done:
 
-* (S): Tried property `Rmax=? [ F is_done=1 ]` for $4$ different `interest` rates:
+* (S): Tried property `Rmax=? [ F is_done=1 ]` for $4$ different `interest` rates (plot uses the fixed reward structure from week 10):
 ![](../presentations/presentation_4/python-codes/max_avg_reward_different_interest.PNG)
 
 We can compare it to what we did the previous week:
@@ -552,6 +552,15 @@ We can compare it to what we did the previous week:
     ```
     [delivery] true : v * pow(1 + interest, tmax - time);  // reward from transition [delivery], accrued monthly interest
     ```
+    * For the $4$ different `interest` rates that we did previously:
+![](../presentations/presentation_4/python-codes/max_avg_reward_different_interest.PNG)
+
+We can observe that a higher interest rate leads to higher maximum rewards. However, when the interest rate is negative, we see some weird surface plots that we're not sure how to interprete (the "wave"-like form).
+
+* (S) Updated the graph representing our new model:
+
+
+
 * (T) Finished implementing our case study by adding a cost to investing. I first tried to have a cost to reserve, given by the "reward". It would be synchronised on the [month] transition instead of [invest] since the [invest] transition is to turn action i from 0 to 1, and we can't add a boolean check for the state after the transition in reward. This is because the reward is essentially a transition itself, synchronized on the action.
     ```
     rewards
