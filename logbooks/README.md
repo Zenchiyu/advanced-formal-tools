@@ -524,6 +524,7 @@ See my graphical representation of the module `month` for more intuition.
 ### Resources consulted or work done:
 
 * (S): Tried property `Rmax=? [ F is_done=1 ]` for $4$ different `interest` rates (plot uses the fixed reward structure from week 10):
+
 ![](../presentations/presentation_4/python-codes/max_avg_reward_different_interest.PNG)
 
 We can compare it to what we did the previous week:
