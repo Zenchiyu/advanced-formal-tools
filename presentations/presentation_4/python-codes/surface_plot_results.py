@@ -52,21 +52,24 @@ def plot_all_res(tables,
         i+=1
     if suptitle is None:
         plt.suptitle("Some quantitive properties with:\n"+\
-                     "p_bar=0:0.1:1, interest=0,\nv_init=0:1:10, tmax=12 months\n")
+                     "p_bar=0:0.1:1, interest=0,\nv_init=0:1:10, tmax=12 months, max_stocks=12\n")
     else:
         plt.suptitle(suptitle)
     plt.gcf().subplots_adjust(top=0.85)
     plt.savefig(savepath)
 
 if __name__ == "__main__":
+    # tables = read_all_res()
+    # plot_all_res(tables)
     
     tables = {}
     interests = [0.5, -0.5, 1, -1]
     for interest in interests:
         name = fr"interest=${interest}$"
-        filename = "max_avg_reward_interest_" + int(np.sign(interest)/2 + 1)*"minus_" + str(np.abs(interest)).replace(".", "_")
+        filename = "max_avg_reward_interest_" + (1-int(np.sign(interest)/2 + 1))*"minus_" + str(np.abs(interest)).replace(".", "_")
         tables[name] = pd.read_csv(filename + ".csv", skipinitialspace=True)
     suptitle = "Rmax=? [ F is_done=1 ] with:\n"+\
-                 "p_bar=0:0.1:1, interest"+ r"$\in\{0.5,-0.5,1,-1\},$"+\
-                 "\nv_init=0:1:10, tmax=12 months\n"
+                  "p_bar=0:0.1:1, interest"+ r"$\in\{0.5,-0.5,1,-1\},$"+\
+                  "\nv_init=0:1:10, tmax=12 months, max_stocks=12\n"
+                  
     plot_all_res(tables, suptitle=suptitle, savepath="./max_avg_reward_different_interest.PNG")
