@@ -518,3 +518,31 @@ See my graphical representation of the module `month` for more intuition.
 * Try to observe the effect of `Pmax=? [ F<=t is_done=1 ]`, `Pmin=? [ F<=t is_done=1 ]` again but in a visual way.
 * Try some properties starting from some given state (by using filters).
 * Find a better way to incrementally extend the model without impacting unvoluntarily some previous results.
+
+## Week 9: 24.04.2023 - 30.04.2023
+
+### Resources consulted or work done:
+
+* (S): Tried property `Rmax=? [ F is_done=1 ]` for $4$ different `interest` rates:
+![](../presentations/presentation_4/python-codes/max_avg_reward_different_interest.PNG)
+
+We can compare it to what we did the previous week:
+![](../presentations/presentation_3/python-codes/all_res.PNG)
+
+
+
+### Current objective(s):
+* Continue to extend the Futures Market Investor case study
+* Continue writing report.
+* Look at properties to get a feel of how much work the analysis and report will take.
+* Consider implementing the remaining extensions based on PRISM-games, according to the above.
+* Look at multiple modules & reward structures.
+* Is it possible to have a reward property giving some value inside a P property ? 
+* Try to observe the interprete the effect of changing the `interest` (and visualize via plots) (note that the interest rate is fixed)
+* Try to observe the effect of `Pmax=? [ F<=t is_done=1 ]`, `Pmin=? [ F<=t is_done=1 ]` again but in a visual way.
+* Try some properties starting from some given state (by using filters).
+* Find a better way to incrementally extend the model without impacting unvoluntarily some previous results.
+
+## Week 10: 01.05.2023 - 07.05.2023 
+
+### Resources consulted or work done:
