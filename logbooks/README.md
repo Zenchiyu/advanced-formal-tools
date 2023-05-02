@@ -559,6 +559,9 @@ We can observe that a higher interest rate leads to higher maximum rewards. Howe
 
 * (S) Updated the graph representing our new model:
 
+![](../presentations/presentation_4/images/PRISM_module_month.png){width=320}
+![](../presentations/presentation_4/images/PRISM_module_investor.png){width=260}
+![](../presentations/presentation_4/images/PRISM_module_barred.png){width=260}
 
 
 * (T) Finished implementing our case study by adding a cost to investing. I first tried to have a cost to reserve, given by the "reward". It would be synchronised on the [month] transition instead of [invest] since the [invest] transition is to turn action i from 0 to 1, and we can't add a boolean check for the state after the transition in reward. This is because the reward is essentially a transition itself, synchronized on the action.
