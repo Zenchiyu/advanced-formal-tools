@@ -597,5 +597,6 @@ We can observe that a higher interest rate leads to higher maximum rewards. Howe
 ### Current objective(s):
 * Continue writing report.
 * Look at properties to get a feel of how much work the analysis and report will take.
+* Try to observe the effect of varying the `max_stocks`
 * Try to observe the effect of `Pmax=? [ F<=t is_done=1 ]`, `Pmin=? [ F<=t is_done=1 ]` again but in a visual way if time permits.
 * Try some properties starting from some given state (by using filters) if time permits.
