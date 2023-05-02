@@ -529,6 +529,7 @@ See my graphical representation of the module `month` for more intuition.
 We can compare it to what we did the previous week:
 ![](../presentations/presentation_3/python-codes/all_res.PNG)
 
+* (T) Busy with other courses this week.
 
 
 ### Current objective(s):
@@ -546,3 +547,37 @@ We can compare it to what we did the previous week:
 ## Week 10: 01.05.2023 - 07.05.2023 
 
 ### Resources consulted or work done:
+
+* (S) Fixed the reward structure for accrued/compound interest:
+    ```
+    [delivery] true : v * pow(1 + interest, tmax - time);  // reward from transition [delivery], accrued monthly interest
+    ```
+* (T) Finished implementing our case study by adding a cost to investing. I first tried to have a cost to reserve, given by the "reward". It would be synchronised on the [month] transition instead of [invest] since the [invest] transition is to turn action i from 0 to 1, and we can't add a boolean check for the state after the transition in reward. This is because the reward is essentially a transition itself, synchronized on the action.
+    ```
+    rewards
+        [delivery] true : v * (1 + pow(interest, (tmax - time)));  // sold stock, with accrued monthly interest
+        [month] i=1: -cost; // cost of reservation
+    endrewards
+    ```
+    This however does not work as PRISM does not support negative rewards. The alternative is then to just add the cost in delivery. But the cost would still have to be less than all possible values of the stock. In that case, the cost doesn't add anything to the analysis, and no properties to look at. For our original idea, we would be able to check the property of the number of reservations as a function of the cost. So this idea is unfortunately scrapped.
+
+    I added a max number of stocks available to the investor. We define this at the beginning and add some boolean checks when investing. Finally, decrement the stocks on delivery.
+    ```
+    const int max_stocks; // number of stocks investor has at the start
+    module month
+        ...
+        [done] (stocks=0) -> (is_done'=1);
+    endmodule
+    module investor
+        
+        stocks: [0..max_stocks] init max_stocks; // number of stocks available to investor
+        i : [0..1]; // i=0 no reservation and i=1 made reservation
+
+        [invest] (i=0) -> (i'=0); // do nothing
+        [invest] (i=0) & (stocks>0) -> (i'=1); // make reservation
+        [invest] (i=1) & (b=1) -> (i'=0); // barred previous month: try again and do nothing
+        [invest] (i=1) & (b=1) & (stocks>0) -> (i'=1); // barred previous month: make reservation
+        [delivery] (i=1) & (b=0) -> (i'=0) & (stocks'=stocks-1); // cash in shares (not barred)
+
+    endmodule
+    ```
