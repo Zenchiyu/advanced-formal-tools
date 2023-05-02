@@ -529,7 +529,7 @@ See my graphical representation of the module `month` for more intuition.
 We can compare it to what we did the previous week:
 ![](../presentations/presentation_3/python-codes/all_res.PNG)
 
-* (T) Busy with other courses this week.
+* (S&T) Busy with other courses this week (2-3 homeworks and exam).
 
 
 ### Current objective(s):
@@ -581,3 +581,8 @@ We can compare it to what we did the previous week:
 
     endmodule
     ```
+### Current objective(s):
+* Continue writing report.
+* Look at properties to get a feel of how much work the analysis and report will take.
+* Try to observe the effect of `Pmax=? [ F<=t is_done=1 ]`, `Pmin=? [ F<=t is_done=1 ]` again but in a visual way if time permits.
+* Try some properties starting from some given state (by using filters) if time permits.
