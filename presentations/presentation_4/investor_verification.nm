@@ -7,6 +7,7 @@ const double p_bar;
 const double interest;
 const int v_init;
 const int tmax;
+const int max_stocks; // number of stocks investor has at the start
 
 // module use to synchronize transitions
 module month
@@ -20,29 +21,30 @@ module month
     
     // transitions made during the month synchronize on 'month'.
     [month] (m=1) & (time < tmax) & (is_done=0) -> (m'=0);
-
-    // If current=last month and didn't invest (or tried but was barred), go to absorbing state.
+    // If last month and didn't invest (or tried but was barred), go to absorbing state.
     [month] ((i=0)|((i=1) &(b=1))) & (m=1) & (time >= tmax) & (is_done=0) -> (is_done'=1);
-    // If current=last month and but invested, still want to cash in the shares.
-    [month] (i=1) & (b=0) & (m=1) & (time >= tmax) & (is_done=0) -> (m'=0);
+
+    [month] (i=1) & (b=0) & (m=1) & (time >= tmax) & (is_done=0) -> (m'=0); // If last month and but invested, still want to cash in the shares.
 
     [delivery] (m=0) & (time < tmax) & (is_done=0) -> (m'=0); // investor has cashed in shares but can still invest except when time = tmax
     [delivery] (m=0) & (time >= tmax) & (is_done=0) -> (is_done'=1);
 
     // can stop even though the investor didn't cash in the last month.
     [done] (is_done=1) -> (is_done'=1);
+    [done] (stocks=0) -> (is_done'=1);
 endmodule
 
 // the investor
 module investor
     
+    stocks: [0..max_stocks] init max_stocks; // number of stocks available to investor
     i : [0..1]; // i=0 no reservation and i=1 made reservation
 
     [invest] (i=0) -> (i'=0); // do nothing
-    [invest] (i=0) -> (i'=1); // make reservation
+    [invest] (i=0) & (stocks>0) -> (i'=1); // make reservation
     [invest] (i=1) & (b=1) -> (i'=0); // barred previous month: try again and do nothing
-    [invest] (i=1) & (b=1) -> (i'=1); // barred previous month: make reservation
-    [delivery] (i=1) & (b=0) -> (i'=0); // cash in shares (not barred), was initially i'=1 instead of i'=0
+    [invest] (i=1) & (b=1) & (stocks>0) -> (i'=1); // barred previous month: make reservation
+    [delivery] (i=1) & (b=0) -> (i'=0) & (stocks'=stocks-1); // cash in shares (not barred), was initially i'=1 instead of i'=0
 
 endmodule
 
@@ -86,9 +88,8 @@ module cap
 
 endmodule
 
-// Two rewards structures, default one below:
 rewards
-    [delivery] true : v * (1 + pow(interest, (tmax - time)));  // reward from transition [delivery], accrued monthly interest
+    [delivery] true : v * pow(1 + interest, tmax - time);  // reward from transition [delivery], accrued monthly interest
 endrewards
 
 rewards "steps"
