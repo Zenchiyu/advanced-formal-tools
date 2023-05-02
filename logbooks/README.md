@@ -594,6 +594,16 @@ We can observe that a higher interest rate leads to higher maximum rewards. Howe
 
     endmodule
     ```
+* (S) changed the part in the module investor to:
+```
+    [invest] (i=0) & (stocks>0) -> (i'=0); // do nothing
+    [invest] (i=0) & (stocks>0) -> (i'=1); // make reservation
+    [invest] (i=1) & (b=1) & (stocks>0) -> (i'=0); // barred previous month: try again and do nothing
+    [invest] (i=1) & (b=1) & (stocks>0) -> (i'=1); // barred previous month: make reservation
+    [delivery] (i=1) & (b=0) & (stocks>0)-> (i'=0) & (stocks'=stocks-1); // cash in shares (not barred), was initially i'=1 instead of i'=0
+    ```
+    in order to remove some warnings saying something with $0$ probabilities.
+    
 ### Current objective(s):
 * Continue writing report.
 * Look at properties to get a feel of how much work the analysis and report will take.
