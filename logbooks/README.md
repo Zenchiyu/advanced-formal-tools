@@ -626,3 +626,13 @@ We can observe that a higher interest rate leads to higher maximum rewards. Howe
 * Try to observe the effect of varying the `max_stocks`
 * Try to observe the effect of `Pmax=? [ F<=t is_done=1 ]`, `Pmin=? [ F<=t is_done=1 ]` again but in a visual way if time permits.
 * Try some properties starting from some given state (by using filters) if time permits.
+
+## Week 12: 14.05.2023 - 21.05.2023 
+
+### Resources consulted or work done:
+* (S) Added background knowledge for state transitions to report and started on the properties (analysis) section
+* (T) Proof-reading report, starting working on presentation
+
+### Current objective(s):
+* Finalize report.
+* Prepare final presentation
