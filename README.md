@@ -27,8 +27,8 @@ From the `src` folder, download our:
  - property list: `properties.props`
 
 Once in the graphical UI, import:
- - the model with `Model` &rarr `Open Model`, and point it to `investor_verification.nm`
- - the properties with `Properties` &rarr `Open properties list`, and point it to `properties.props`
+ - the model with `Model` $\rightarrow$ `Open Model`, and point it to `investor_verification.nm`
+ - the properties with `Properties` $\rightarrow$ `Open properties list`, and point it to `properties.props`
 
 ## Running the Case Study from the GUI
 
@@ -37,7 +37,7 @@ There are 4 different tabs at the bottom:
 - `Simulator`: where you can simulate paths in the model and can even pick which state you want next.
 - `Properties`: where you can design properties, verify them, export the results, plot the results.
 - `Log`: where you can see possible warnings about deadlocks and also see the output of different other tools
-from the tabs at the top of the tool (e.g `Model` &rarr `Compute` &rarr `Steady-State probabilities`).
+from the tabs at the top of the tool (e.g `Model` $\rightarrow$ `Compute` $\rightarrow$ `Steady-State probabilities`).
 
 Once the properties are imported, you should see different formulas inside the `Properties` box in the `Property` tab.
 There are different ways to verify a property after right-clicking on it such as:
