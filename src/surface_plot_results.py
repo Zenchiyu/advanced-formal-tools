@@ -58,8 +58,8 @@ def plot_all_res(tables,
     plt.savefig(savepath)
 
 if __name__ == "__main__":
-    # tables = read_all_res()
-    # plot_all_res(tables)
+    tables = read_all_res()
+    plot_all_res(tables)
     
     tables = {}
     interests = [0.5, -0.5, 1, -1]
