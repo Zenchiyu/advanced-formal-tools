@@ -1,0 +1,14 @@
+const int t;
+
+Rmax=? [ F is_done=1 ]
+
+Rmin=? [ F is_done=1 ]
+
+Pmax=? [ F<=t is_done=1 ]
+
+Pmin=? [ F<=t is_done=1 ]
+
+R{"steps"}max=? [ F is_done=1 ]
+
+R{"steps"}min=? [ F is_done=1 ]
+

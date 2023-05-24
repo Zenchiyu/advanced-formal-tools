@@ -20,11 +20,33 @@ To compile PRISM from source, you need the Java Development Kit (JDK), GNU make 
 
 https://www.prismmodelchecker.org/manual/InstallingPRISM/Instructions
 
-## Importing our Case Study
+## Importing our Case Study into PRISM
 
-Next, download our model, investor_verification.nm, and property list, properties.props. Once in the graphical UI, import the model with Model -> Open Model, and point it to investor_verification.nm. Similarly, go to Properties -> Open properties list, and point it to properties.props.
+From the `src` folder, download our:
+ - model: `investor_verification.nm`
+ - property list: `properties.props`
 
-## Running the Case Study
+Once in the graphical UI, import:
+ - the model with `Model` &rarr `Open Model`, and point it to `investor_verification.nm`
+ - the properties with `Properties` &rarr `Open properties list`, and point it to `properties.props`
 
-Paths in our model can be sampled through the bottom tab Simulator, and Properties can be verified through the bottom tab Properties.
+## Running the Case Study from the GUI
+
+There are 4 different tabs at the bottom:
+- `Model`: where you can modify the model
+- `Simulator`: where you can simulate paths in the model and can even pick which state you want next.
+- `Properties`: where you can design properties, verify them, export the results, plot the results.
+- `Log`: where you can see possible warnings about deadlocks and also see the output of different other tools
+from the tabs at the top of the tool (e.g `Model` &rarr `Compute` &rarr `Steady-State probabilities`).
+
+Once the properties are imported, you should see different formulas inside the `Properties` box in the `Property` tab.
+There are different ways to verify a property after right-clicking on it such as:
+- `Verify`: verifies a property using some iterative algorithm for a single combination of parameter values (or constants)
+- `Simulate`: same but by sampling many trajectories within the system instead of using the iterative algorithm
+- `Experiments`:
+	- verifies a property for many combinations of parameter values (or constants),
+either using an iterative algorithm or using sampled paths.
+	- can export the results into CSV
+	- can directly plot inside PRISM (but limited capabilities)
+	
 

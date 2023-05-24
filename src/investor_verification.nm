@@ -1,0 +1,97 @@
+// EXTENDED "INVESTING IN THE FUTURES MARKET" from McIver and Morgan 03
+// To finite horizon, multiple investments by Stephane NGUYEN and Tansen RAHMAN
+
+mdp
+
+const double p_bar;
+const double interest;
+const int v_init;
+const int tmax;
+const int max_stocks; // number of stocks investor has at the start
+
+// module use to synchronize transitions
+module month
+    
+    m : [0..1];
+    time : [0..tmax] init 0;
+    is_done : [0..1] init 0; 
+    
+    // transitions made at the start of the month synchronize on 'invest'. Increases time too
+    [invest] (m=0) & (time < tmax) & (stocks > 0)-> (m'=1) & (time'=time+1);
+    
+    // transitions made during the month synchronize on 'month'.
+    [month] (m=1) & (time < tmax) & (is_done=0) & (stocks > 0) -> (m'=0);
+    // If last month and didn't invest (or tried but was barred), go to absorbing state.
+    [month] ((i=0)|((i=1) &(b=1))) & (m=1) & (time >= tmax) & (is_done=0) & (stocks > 0) -> (is_done'=1);
+
+    [month] (i=1) & (b=0) & (m=1) & (time >= tmax) & (is_done=0) & (stocks > 0)-> (m'=0); // If last month and but invested, still want to cash in the shares.
+
+    [delivery] (m=0) & (time < tmax) & (is_done=0) & (stocks > 0) -> (m'=0); // investor has cashed in shares but can still invest except when time = tmax
+    [delivery] (m=0) & (time >= tmax) & (is_done=0) & (stocks > 0) -> (is_done'=1);
+
+    // can stop even though the investor didn't cash in the last month.
+    [done] (is_done=1) | (stocks=0) -> (is_done'=1);
+    
+endmodule
+
+// the investor
+module investor
+    
+    stocks: [0..max_stocks] init max_stocks; // number of stocks available to investor
+    i : [0..1]; // i=0 no reservation and i=1 made reservation
+
+    [invest] (i=0) & (stocks>0) -> (i'=0); // do nothing
+    [invest] (i=0) & (stocks>0) -> (i'=1); // make reservation
+    [invest] (i=1) & (b=1) & (stocks>0) -> (i'=0); // barred previous month: try again and do nothing
+    [invest] (i=1) & (b=1) & (stocks>0) -> (i'=1); // barred previous month: make reservation
+    [delivery] (i=1) & (b=0) & (stocks>0)-> (i'=0) & (stocks'=stocks-1); // cash in shares (not barred), was initially i'=1 instead of i'=0
+
+endmodule
+
+// bar on the investor
+module barred
+
+    b : [0..1] init 1; // initially cannot bar
+    // b=0 - not barred and b=1 - barred
+
+    [invest] (b=1) -> (b'=0); // do not bar this month
+    [invest] (b=0) & (i=0) -> p_bar: (b'=1) + (1-p_bar): (b'=0); // bar this month (cannot have barred the previous month), only when investor did not invest last month 
+    
+endmodule
+
+// value of the shares
+module value
+    
+    v : [0..10] init v_init;
+
+    [month] true -> p/10 : (v'=min(v+1,c)) + (1-p/10) : (v'=min(max(v-1,0),c));
+
+endmodule
+
+// probability of shares going up/down
+module probability
+    
+    p : [0..10] init 5; // probabilitity is p/10 and initially the probability is 1/2
+
+    [month] (v<5) -> 2/3 : (p'=min(p+1,10)) + 1/3 : (p'=max(p-1,0));
+    [month] (v=5) -> 1/2 : (p'=min(p+1,10)) + 1/2 : (p'=max(p-1,0));
+    [month] (v>5) -> 1/3 : (p'=min(p+1,10)) + 2/3 : (p'=max(p-1,0));
+
+endmodule
+
+// cap on the value of the shares
+module cap
+    
+    c : [0..10] init 10; // cap on the shares
+
+    [month] true -> 1/2 : (c'=max(c-1,0)) + 1/2 : (c'=c); // probability 1/2 the cap decreases
+
+endmodule
+
+rewards
+    [delivery] true : v * pow(1 + interest, tmax - time);  // reward from transition [delivery], accrued monthly interest
+endrewards
+
+rewards "steps"
+    true : 1;
+endrewards
