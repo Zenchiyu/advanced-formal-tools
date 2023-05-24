@@ -1,4 +1,4 @@
-# Advanced Formal Tools: Project 7. Probabilistic Model Checking with PRISM
+# Advanced Formal Tools: Project 7. Probabilistic Model Checking with PRISM: Investor in Market case study
 
 Members:
 - NGUYEN Stéphane Liem
@@ -9,6 +9,10 @@ The goal of this project is to explore the domain of probabilistic model checkin
 Equipped with the PRISM probabilistic model checker, we can define and verify properties of models of small distributed applications (e.g., cyber physical systems) and/or concurrent programs.
 
 We first define the mathematical background and formalism. We then explain how this data and models are represented and encoded in the PRISM tool and PRISM language. We finally explore a case study given on the PRISM site, extend it, and analyze some properties.
+
+<p align="center">
+  <img src="./presentations/presentation_2/images/market_time_series.png" />
+</p>
 
 ## Structure of project
 
@@ -29,12 +33,20 @@ We first define the mathematical background and formalism. We then explain how t
 ├── report
 │   └── ...
 └── src
+    ├── images
+    │   ├── all_res.PNG
+    │   └── max_avg_reward_different_interest.PNG
     ├── investor_verification.nm
     ├── market_time_series.py
     ├── properties.props
     ├── read_all_res.py
+    ├── results
+    │   ├── all_res.csv
+    │   ├── max_avg_reward_interest_0_5.csv
+    │   ├── max_avg_reward_interest_1.csv
+    │   ├── max_avg_reward_interest_minus_0_5.csv
+    │   └── max_avg_reward_interest_minus_1.csv
     └── surface_plot_results.py
-
 ```
 
 - The `report` folder contains as the name suggests, our report.
