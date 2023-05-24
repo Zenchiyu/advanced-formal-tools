@@ -10,6 +10,38 @@ Equipped with the PRISM probabilistic model checker, we can define and verify pr
 
 We first define the mathematical background and formalism. We then explain how this data and models are represented and encoded in the PRISM tool and PRISM language. We finally explore a case study given on the PRISM site, extend it, and analyze some properties.
 
+## Structure of project
+
+```
+├── logbooks
+│   ├── image.png
+│   └── README.md
+├── presentations
+│   ├── presentation_1
+│   │   └── ...
+│   ├── presentation_2
+│   │   └── ...
+│   ├── presentation_3
+│   │   └── ...
+│   └── presentation_4
+│       └── ...
+├── README.md
+├── report
+│   └── ...
+└── src
+    ├── investor_verification.nm
+    ├── market_time_series.py
+    ├── properties.props
+    ├── read_all_res.py
+    └── surface_plot_results.py
+
+```
+
+- The `report` folder contains as the name suggests, our report.
+- The `src` folder contains our final PRISM model, PRISM properties file and related codes to plot our results.
+- The `logbooks` folder records, in its `README.md`, details of what we did every week in this project.
+- The `presentations` folder contains folders for each presentation. These folder include the presentation slides as well as a version of our case study and related codes.
+
 ## PRISM Installation
 
 PRISM is known to run on Linux, Windows and Mac OS X, both 64-bit and 32-bit versions.
