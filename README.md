@@ -29,12 +29,20 @@ We first define the mathematical background and formalism. We then explain how t
 ├── report
 │   └── ...
 └── src
+    ├── images
+    │   ├── all_res.PNG
+    │   └── max_avg_reward_different_interest.PNG
     ├── investor_verification.nm
     ├── market_time_series.py
     ├── properties.props
     ├── read_all_res.py
+    ├── results
+    │   ├── all_res.csv
+    │   ├── max_avg_reward_interest_0_5.csv
+    │   ├── max_avg_reward_interest_1.csv
+    │   ├── max_avg_reward_interest_minus_0_5.csv
+    │   └── max_avg_reward_interest_minus_1.csv
     └── surface_plot_results.py
-
 ```
 
 - The `report` folder contains as the name suggests, our report.
