@@ -630,6 +630,7 @@ We can observe that a higher interest rate leads to higher maximum rewards. Howe
 ## Week 12: 14.05.2023 - 21.05.2023 
 
 ### Resources consulted or work done:
+* (S&T) Modified `README.md`
 * (S) Added background knowledge for state transitions to report and started on the properties (analysis) section
 * (T) Proof-reading report, starting working on presentation
 
