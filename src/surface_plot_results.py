@@ -13,7 +13,6 @@ from read_all_res import read_all_res
 
 
 def plot_res(df):
-    # df = pd.read_csv("./prism_results_prior_to_tansen_modif.csv", skipinitialspace=True)
     X = df["p_bar"].values.reshape((11, 11))
     Y = df["v_init"].values.reshape((11, 11))
     Z = df["Result"].values.reshape((11, 11))
@@ -28,7 +27,7 @@ def plot_res(df):
 
 def plot_all_res(tables,
                  suptitle=None,
-                 savepath="./all_res.PNG"):
+                 savepath="./images/all_res.PNG"):
     fig, axs = plt.subplots(2, len(tables)//2,
                             figsize=(7, 7),
                             subplot_kw={"projection": "3d"})
@@ -66,10 +65,14 @@ if __name__ == "__main__":
     interests = [0.5, -0.5, 1, -1]
     for interest in interests:
         name = fr"interest=${interest}$"
-        filename = "max_avg_reward_interest_" + (1-int(np.sign(interest)/2 + 1))*"minus_" + str(np.abs(interest)).replace(".", "_")
+        folder = "./results/"
+        filename = folder + "max_avg_reward_interest_" +\
+                   (1-int(np.sign(interest)/2 + 1))*"minus_" +\
+                   str(np.abs(interest)).replace(".", "_")
+                   
         tables[name] = pd.read_csv(filename + ".csv", skipinitialspace=True)
     suptitle = "Rmax=? [ F is_done=1 ] with:\n"+\
                   "p_bar=0:0.1:1, interest"+ r"$\in\{0.5,-0.5,1,-1\},$"+\
                   "\nv_init=0:1:10, tmax=12 months, max_stocks=12\n"
                   
-    plot_all_res(tables, suptitle=suptitle, savepath="./max_avg_reward_different_interest.PNG")
+    plot_all_res(tables, suptitle=suptitle, savepath="./images/max_avg_reward_different_interest.PNG")

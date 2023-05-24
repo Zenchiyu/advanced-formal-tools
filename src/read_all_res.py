@@ -8,8 +8,8 @@ import numpy as np
 import pandas as pd
 
 
-def read_all_res(filename="all_res.csv",
-                 properties_path="../properties.props"):
+def read_all_res(filename="results/all_res.csv",
+                 properties_path="properties.props"):
     df = pd.read_csv(filename, header=None, names=range(3))
     with open(properties_path, "r") as f:
         table_names = list(line for line in (l.strip() for l in f) if line)
