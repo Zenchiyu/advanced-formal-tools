@@ -74,6 +74,10 @@ Once in the graphical UI, import:
  - the model with `Model` $\rightarrow$ `Open Model`, and point it to `investor_verification.nm`
  - the properties with `Properties` $\rightarrow$ `Open properties list`, and point it to `properties.props`
 
+One can also try a simple MDP example we created with:
+ - model: `mdp_example.nm`
+ - property list: `properties_mdp_example.props`
+
 ## Running the Case Study from the GUI
 
 There are 4 different tabs at the bottom:
