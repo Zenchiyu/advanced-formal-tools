@@ -38,7 +38,9 @@ We first define the mathematical background and formalism. We then explain how t
     │   └── max_avg_reward_different_interest.PNG
     ├── investor_verification.nm
     ├── market_time_series.py
+    ├── mdp_example.nm
     ├── properties.props
+    ├── properties_mdp_example.props
     ├── read_all_res.py
     ├── results
     │   ├── all_res.csv
