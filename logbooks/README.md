@@ -630,10 +630,20 @@ We can observe that a higher interest rate leads to higher maximum rewards. Howe
 ## Week 12: 14.05.2023 - 21.05.2023 
 
 ### Resources consulted or work done:
+* (S) Added some background knowledge for state transitions to report (DTMC, MDPs) and started on the properties (analysis) section
+* (T) Proof-reading report, starting working on presentation
+
+### Current objective(s):
+* Finalize report.
+* Prepare final presentation
+
+## Week 13: 22.05.2023 - 28.05.2023 
+
+### Resources consulted or work done:
 * (S&T) Modified `README.md`:
     - (T) Added PRISM installation and importing/running case study in PRISM
     - (S) Added structure of project and changed importing/running case study in PRISM to also include some information on different tools/tabs one can use in PRISM.
-* (S) Added background knowledge for state transitions to report and started on the properties (analysis) section
+* (S) Continuing Background section with Finite Kripke Structures, Turned-based stochastic games. Also added an example of DTMC following the formal definition as well as an example for MDP. Started Property Specification section with PCTL, CTL syntax.
 * (T) Proof-reading report, starting working on presentation
 
 ### Current objective(s):
