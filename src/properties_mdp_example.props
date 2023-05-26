@@ -1,4 +1,6 @@
-Rmin=? [F s=0]
+Rmin=? [ F s=0 ]
 
-Rmax=? [F s=0]
+Rmax=? [ F s=0 ]
+
+Pmin=? [ F s=0 ]
 
