@@ -631,7 +631,8 @@ We can observe that a higher interest rate leads to higher maximum rewards. Howe
 
 ### Resources consulted or work done:
 * (S) Added some background knowledge for state transitions to report (DTMC, MDPs) and started on the properties (analysis of our results) section
-* (T) Proof-reading report, starting working on presentation
+* (T) Proof-reading report
+* (S&T) Working on presentation
 
 ### Current objective(s):
 * Finalize report.
@@ -670,7 +671,8 @@ endrewards
 ```
 About half of the report was therefore done by S and half by T.
 
-* (T) Proof-reading report, starting working on presentation
+* (S&T) Proof-reading report
+* (S&T) Working on presentation
 
 ### Current objective(s):
 * Finalize report.
