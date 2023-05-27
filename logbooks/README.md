@@ -615,7 +615,7 @@ We can observe that a higher interest rate leads to higher maximum rewards. Howe
 ## Week 11: 08.05.2023 - 13.05.2023 
 
 ### Resources consulted or work done:
-* (T&S) Writing report (T wrote most of it)
+* (T&S) Writing report (T wrote most of it at that time and S proof-read + added citations)
 * (S) Added simplified graph:
 
 ![](../presentations/presentation_4/images/PRISM_module_month_simplified.png){width=320}
@@ -667,6 +667,8 @@ rewards "steps"
     true : 1;
 endrewards
 ```
+About half of the report was therefore done by S and half by T.
+
 * (T) Proof-reading report, starting working on presentation
 
 ### Current objective(s):
