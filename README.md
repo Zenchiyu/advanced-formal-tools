@@ -39,8 +39,10 @@ We first define the mathematical background and formalism. We then explain how t
     ├── investor_verification.nm
     ├── market_time_series.py
     ├── mdp_example.nm
+    ├── mdp_example_given_policy.nm
     ├── properties.props
     ├── properties_mdp_example.props
+    ├── properties_mdp_example_given_policy.props
     ├── read_all_res.py
     ├── results
     │   ├── all_res.csv
@@ -52,7 +54,7 @@ We first define the mathematical background and formalism. We then explain how t
 ```
 
 - The `report` folder contains as the name suggests, our report.
-- The `src` folder contains our final PRISM model, PRISM properties file and related codes to plot our results.
+- The `src` folder contains our final PRISM model, PRISM properties file and related codes to plot our results. This folder also contains two examples `mdp_example` (a Markov Decision Process) and `mdp_example_given_policy` (a Markov Reward Process representing the MDP example in which a policy is given).
 - The `logbooks` folder records, in its `README.md`, details of what we did every week in this project.
 - The `presentations` folder contains folders for each presentation. These folder include the presentation slides as well as a version of our case study and related codes.
 
