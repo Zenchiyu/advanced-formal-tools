@@ -645,6 +645,7 @@ We can observe that a higher interest rate leads to higher maximum rewards. Howe
     - (S) Added structure of project and changed importing/running case study in PRISM to also include some information on different tools/tabs one can use in PRISM.
 * (S) Continuing Background section with Finite Kripke Structures, Turned-based stochastic games.
 * (S) Started Property Specification section with PCTL, CTL syntax.
+* (S) Added limitations subsection
 * (S) Also added an example of DTMC following the formal definition as well as an example for MDP:
 ```
 mdp
