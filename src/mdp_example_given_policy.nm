@@ -1,0 +1,25 @@
+dtmc
+
+const double p_crouch;  // defines the policy
+
+// MDP example with a given policy -> falls back to MRP
+// p_crouch = 0.5 -> random policy
+module mdp_example_random_policy
+    s: [0..1] init 1;  // alive initially
+
+    // Jump and crouch according to policy from s=1
+    [jump_or_crouch] (s=1) -> 0.3*(1-p_crouch): (s'=1)  // jump
+		  	    + 0.7*(1-p_crouch): (s'=0)  // jump
+		  	    + 0.8*p_crouch: (s'=1)  // crouch
+			    + 0.2*p_crouch: (s'=0); // crouch
+    [noop] (s=0) -> (s'=0);  // absorbing states
+endmodule
+
+rewards
+    (s=1) : 1;  // reward for staying alive
+    (s=0) : 0;  // died
+endrewards
+
+rewards "steps"
+    true : 1;
+endrewards
