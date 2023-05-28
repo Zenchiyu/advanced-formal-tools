@@ -10,8 +10,13 @@ Equipped with the PRISM probabilistic model checker, we can define and verify pr
 
 We first define the mathematical background and formalism. We then explain how this data and models are represented and encoded in the PRISM tool and PRISM language. We finally explore a case study given on the PRISM site, extend it, and analyze some properties.
 
+<!---
 <p align="center">
   <img src="./presentations/presentation_2/images/market_time_series.png" />
+</p>
+--->
+<p align="center">
+  <img src="./src/images/market_dynamics.gif" />
 </p>
 
 ## Structure of project
