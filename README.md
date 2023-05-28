@@ -8,7 +8,12 @@ The goal of this project is to explore the domain of probabilistic model checkin
 
 Equipped with the PRISM probabilistic model checker, we can define and verify properties of models of small distributed applications (e.g., cyber physical systems) and/or concurrent programs.
 
-We first define the mathematical background and formalism. We then explain how this data and models are represented and encoded in the PRISM tool and PRISM language. We finally explore a case study given on the PRISM site, extend it, and analyze some properties.
+PRISM was created and is actively maintained by:
+- Dave Parker (University of Oxford)
+- Gethin Norman (University of Glasgow)
+- Marta Kwiatkowska (University of Oxford) 
+
+In the report, we first define the mathematical background and formalism. We then explain how this data and models are represented and encoded in the PRISM tool and PRISM language. We finally explore a case study given on the PRISM site, extend it, and analyze some properties.
 
 <!---
 <p align="center">
