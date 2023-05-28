@@ -130,4 +130,19 @@ prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,int
 
 If there are any errors, it might come from path issues.
 
+## References
+[1] FOREJT, V., KWIATKOWSKA, M., NORMAN, G., AND PARKER, D. Automated Verification Techniques for Probabilistic
+Systems. In Formal Methods for Eternal Networked Software Systems, M. Bernardo and V. Issarny, Eds., vol. 6659.
+Springer Berlin Heidelberg, Berlin, Heidelberg, 2011, pp. 53–113. Series Title: Lecture Notes in Computer Science.
+
+[2] HANSSON, H., AND JONSSON, B. A Logic for Reasoning about Time and Reliability. Formal Aspects of Computing
+6 (Feb. 1995).
+
+[3] KWIATKOWSKA, M., NORMAN, G., AND PARKER, D. PRISM 4.0: Verification of Probabilistic Real-Time Systems. In
+Computer Aided Verification, G. Gopalakrishnan and S. Qadeer, Eds., vol. 6806. Springer Berlin Heidelberg, Berlin,
+Heidelberg, 2011, pp. 585–591. Series Title: Lecture Notes in Computer Science.
+
+[4] KWIATKOWSKA, M., NORMAN, G., AND PARKER, D. Probabilistic Model Checking and Autonomy. Annual Review
+of Control, Robotics, and Autonomous Systems 5, 1 (2022), 385–410. _eprint: https://doi.org/10.1146/annurev-control-042820-010947
+
 
