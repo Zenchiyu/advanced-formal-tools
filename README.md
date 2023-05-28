@@ -109,7 +109,7 @@ either using an iterative algorithm or using sampled paths.
 
 ## Running the Case Study from the CLI
 
-The following commands, if adpated with the correct paths for the model, properties and output, should give you the CSV files of our results.
+The following commands, if adapted with the correct paths for the model, properties and outputs, should give you the CSV files of our results.
 
 The following command should give our `all_res.csv` results:
 ```
