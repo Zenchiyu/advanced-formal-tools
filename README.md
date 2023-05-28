@@ -109,16 +109,24 @@ either using an iterative algorithm or using sampled paths.
 
 ## Running the Case Study from the CLI
 
-You can run the following command, from the `src` folder to get our `all_res.csv` results:
+The following commands, if adpated with the correct paths for the model, properties and output, should give you the CSV files of our results.
+
+The following command should give our `all_res.csv` results:
 ```
 prism investor_verification.nm properties.props -prop 1,2,5,6 -const p_bar=0:0.1:1,interest=0,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults all_res.csv:csv
 ```
+
 The other results were obtained using
 ```
-prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=0.5,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults all_res.csv:csv
-prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=1,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults all_res.csv:csv
-prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=-0.5,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults all_res.csv:csv
-prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=-1,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults all_res.csv:csv
+prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=0.5,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults max_avg_reward_interest_0_5.csv:csv
+
+prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=1,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults max_avg_reward_interest_1.csv:csv
+
+prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=-0.5,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults max_avg_reward_interest_minus_0_5.csv:csv
+
+prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=-1,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults max_avg_reward_interest_minus_1.csv:csv
 ```
+
+If there are any errors, it might come from path issues.
 
 
