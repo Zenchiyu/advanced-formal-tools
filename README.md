@@ -66,7 +66,8 @@ We first define the mathematical background and formalism. We then explain how t
 
 ## PRISM Installation
 
-PRISM is known to run on Linux, Windows and Mac OS X, both 64-bit and 32-bit versions.
+
+Our project is based on PRISM version 4.7. PRISM is known to run on Linux, Windows and Mac OS X, both 64-bit and 32-bit versions.
 
 You will need Java, version 9 or above (get it, for example from Oracle or AdoptOpenJDK). To run binary versions of PRISM, you only need the Java Runtime Environment (JRE), not the full Java Development Kit (JDK).
 
