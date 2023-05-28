@@ -67,13 +67,15 @@ We first define the mathematical background and formalism. We then explain how t
 ## PRISM Installation
 
 
-Our project is based on PRISM version 4.7. PRISM is known to run on Linux, Windows and Mac OS X, both 64-bit and 32-bit versions.
+Our project is based on PRISM version 4.7 and the installation instructions are detailed in [the PRISM's website](https://www.prismmodelchecker.org/manual/InstallingPRISM/Instructions). For instance, they state that:
 
-You will need Java, version 9 or above (get it, for example from Oracle or AdoptOpenJDK). To run binary versions of PRISM, you only need the Java Runtime Environment (JRE), not the full Java Development Kit (JDK).
+> PRISM is known to run on Linux, Windows and Mac OS X, both 64-bit and 32-bit versions.
 
-To compile PRISM from source, you need the Java Development Kit (JDK), GNU make and a C/C++ compiler (e.g. gcc/g++). For compilation under Windows, you will need Cygwin. See below for more information and steps:
+> You will need Java, version 9 or above (get it, for example from Oracle or AdoptOpenJDK). To run binary versions of PRISM, you only need the Java Runtime Environment (JRE), not the full Java Development Kit (JDK).
 
-https://www.prismmodelchecker.org/manual/InstallingPRISM/Instructions
+> To compile PRISM from source, you need the Java Development Kit (JDK), GNU make and a C/C++ compiler (e.g. gcc/g++). For compilation under Windows, you will need Cygwin.
+
+
 
 ## Importing our Case Study into PRISM
 
