@@ -15,9 +15,10 @@ We first define the mathematical background and formalism. We then explain how t
   <img src="./presentations/presentation_2/images/market_time_series.png" />
 </p>
 --->
-<p align="center">
+<div align='center'>
+  Market value of a stock for different initial market value 
   <img src="./src/images/market_dynamics.gif" />
-</p>
+</div>
 
 ## Structure of project
 
