@@ -673,7 +673,15 @@ About half of the report was therefore done by S and half by T.
 
 * (S&T) Proof-reading report
 * (S&T) Working on presentation
-* (S) Verified for more than 1.5 hours that the modified version of our PRISM model that is in the report gives all the same results as previously (and plots). Fixed one error too in the modified PRISM model.
+* (S) Verified for more than 1.5 hours that the modified version of our PRISM model that is in the report gives all the same results as previously (and plots). Fixed one error that forbid us from obtaining any result in the modified PRISM model by changing:
+```
+[delivery] (i=1) & (b=0) -> (i'=0) & (stocks'=stocks-1); // cash in shares
+```
+to
+```
+[delivery] (i=1) & (b=0) & (stocks>0) -> (i'=0) & (stocks'=stocks-1); // cash in shares
+```
+* (S) changed the diagrams for our "transition diagrams" according to new model.
 
 ### Current objective(s):
 * Finalize report.
