@@ -51,6 +51,8 @@ def generate_time_series(v_init=10, p=1/2, cap_init=10, length=100):
 if __name__ == "__main__":
     length = 50
     nb_runs = 20
+
+    # Generating a single "run"
     # v, c = generate_time_series(length=length)
     # plt.plot(v, label="market value v")
     # plt.plot(c, "--r", label="cap")
@@ -58,7 +60,8 @@ if __name__ == "__main__":
     # plt.title("Market value")
     # plt.xlabel("Month")
     # plt.ylabel("Market value")
-    # vs_non_flat, cs_non_flat = zip(*[generate_time_series(length=length) for _ in range(nb_runs)])
+    
+    # Generating nb_runs "runs" with random v_init each time
     vs_non_flat, cs_non_flat = zip(*[generate_time_series(v_init=np.random.randint(11), length=length) for _ in range(nb_runs)])
     vs, cs = np.array(vs_non_flat).flatten(), np.array(cs_non_flat).flatten()
     xs = np.tile(np.arange(length), 20)
@@ -85,16 +88,6 @@ if __name__ == "__main__":
         line2.set_xdata(np.arange(length+1))
         line2.set_ydata(np.concatenate([cs[begin_c:end_c],
                                         cs[end_c]*np.ones(length+1-m)]))
-        
-        # line1.set_ydata(vs[frame-m:frame])
-        # line2.set_xdata(np.arange(length))
-        # line2.set_ydata(np.concatenate([cs[frame-m:frame],
-        #                                 cs[frame]*np.ones(length-m)]))
-        # line1.set_xdata(np.arange(frame))
-        # line1.set_ydata(v[:frame])
-        # line2.set_xdata(np.arange(length))
-        # line2.set_ydata(np.concatenate([c[:frame],
-        #                                 c[frame]*np.ones(length-frame)]))
         
         return (line1, line2)
 
