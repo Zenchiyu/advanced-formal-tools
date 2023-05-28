@@ -106,5 +106,19 @@ There are different ways to verify a property after right-clicking on it such as
 either using an iterative algorithm or using sampled paths.
 	- can export the results into CSV
 	- can directly plot inside PRISM (but limited capabilities)
-	
+
+## Running the Case Study from the CLI
+
+You can run the following command, from the `src` folder to get our `all_res.csv` results:
+```
+prism investor_verification.nm properties.props -prop 1,2,5,6 -const p_bar=0:0.1:1,interest=0,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults all_res.csv:csv
+```
+The other results were obtained using
+```
+prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=0.5,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults all_res.csv:csv
+prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=1,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults all_res.csv:csv
+prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=-0.5,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults all_res.csv:csv
+prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,interest=-1,v_init=0:1:10,tmax=12,max_stocks=12 -exportresults all_res.csv:csv
+```
+
 
