@@ -100,4 +100,4 @@ if __name__ == "__main__":
 
     ani = animation.FuncAnimation(fig=fig, func=update, frames=length*nb_runs, interval=64)
     plt.show()
-    ani.save("./images/market_dynamics.gif", writer=animation.PillowWriter(fps=30))
+    ani.save("./images/market_dynamics.gif", writer=animation.PillowWriter(fps=36))
