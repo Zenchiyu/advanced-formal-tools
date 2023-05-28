@@ -673,6 +673,7 @@ About half of the report was therefore done by S and half by T.
 
 * (S&T) Proof-reading report
 * (S&T) Working on presentation
+* (S) Verified for more than 1.5 hours that the modified version of our PRISM model that is in the report gives all the same results as previously (and plots). Fixed one error too in the modified PRISM model.
 
 ### Current objective(s):
 * Finalize report.
