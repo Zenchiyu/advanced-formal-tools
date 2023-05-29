@@ -6,7 +6,7 @@ Members:
 
 The goal of this project is to explore the domain of probabilistic model checking, which consists of leveraging probabilistic models to analyse programs.
 
-Equipped with the PRISM probabilistic model checker, we can define and verify properties of models of small distributed applications (e.g., cyber physical systems) and/or concurrent programs.
+Equipped with the [PRISM probabilistic model checker](http://www.prismmodelchecker.org), we can define and verify properties of models of small distributed applications (e.g., cyber physical systems) and/or concurrent programs.
 
 PRISM was created and is actively maintained by:
 - Dave Parker (University of Oxford)
@@ -80,6 +80,7 @@ Our project is based on PRISM version 4.7 and the installation instructions are 
 
 > To compile PRISM from source, you need the Java Development Kit (JDK), GNU make and a C/C++ compiler (e.g. gcc/g++). For compilation under Windows, you will need Cygwin.
 
+Their README from their [github](https://github.com/prismmodelchecker/prism) also adds some explanation.
 
 
 ## Importing our Case Study into PRISM
