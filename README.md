@@ -28,6 +28,8 @@ In the report, we first define the mathematical background and formalism. We the
 ## Structure of project
 
 ```
+├── documentation
+│   └── ...
 ├── logbooks
 │   ├── image.png
 │   └── README.md
@@ -41,8 +43,6 @@ In the report, we first define the mathematical background and formalism. We the
 │   └── presentation_4
 │       └── ...
 ├── README.md
-├── documentation
-│   └── ...
 └── src
     ├── images
     │   ├── all_res.PNG
