@@ -41,7 +41,7 @@ In the report, we first define the mathematical background and formalism. We the
 │   └── presentation_4
 │       └── ...
 ├── README.md
-├── report
+├── documentation
 │   └── ...
 └── src
     ├── images
@@ -64,7 +64,7 @@ In the report, we first define the mathematical background and formalism. We the
     └── surface_plot_results.py
 ```
 
-- The `report` folder contains as the name suggests, our report.
+- The `documentation` folder contains our report as well as our final presentation slides.
 - The `src` folder contains our final PRISM model, PRISM properties file and related codes to plot our results. This folder also contains two examples `mdp_example` (a Markov Decision Process) and `mdp_example_given_policy` (a Markov Reward Process representing the MDP example in which a policy is given).
 - The `logbooks` folder records, in its `README.md`, details of what we did every week in this project.
 - The `presentations` folder contains folders for each presentation. These folder include the presentation slides as well as a version of our case study and related codes.
