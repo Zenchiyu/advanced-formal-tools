@@ -4,7 +4,7 @@ Members:
 - NGUYEN Stéphane Liem
 - RAHMAN Tansen
 
-The goal of this project is to explore the domain of probabilistic model checking, which consists of leveraging probabilistic models to analyse programs.
+The goal of this project is to explore the domain of probabilistic model checking, which consists of leveraging probabilistic models to analyse programs. This project is part of the course Advanced Formal Tools given at University of Geneva by Professor Didier Buchs and his teaching assistant Damien Morard.
 
 Equipped with the [PRISM probabilistic model checker](http://www.prismmodelchecker.org), we can define and verify properties of models of small distributed applications (e.g., cyber physical systems) and/or concurrent programs.
 
@@ -138,7 +138,7 @@ prism investor_verification.nm properties.props -prop 1 -const p_bar=0:0.1:1,int
 
 If there are any errors, it might come from path issues.
 
-## References
+## References/Credits
 [1] FOREJT, V., KWIATKOWSKA, M., NORMAN, G., AND PARKER, D. Automated Verification Techniques for Probabilistic
 Systems. In Formal Methods for Eternal Networked Software Systems, M. Bernardo and V. Issarny, Eds., vol. 6659.
 Springer Berlin Heidelberg, Berlin, Heidelberg, 2011, pp. 53–113. Series Title: Lecture Notes in Computer Science.
@@ -153,4 +153,4 @@ Heidelberg, 2011, pp. 585–591. Series Title: Lecture Notes in Computer Science
 [4] KWIATKOWSKA, M., NORMAN, G., AND PARKER, D. Probabilistic Model Checking and Autonomy. Annual Review
 of Control, Robotics, and Autonomous Systems 5, 1 (2022), 385–410. _eprint: https://doi.org/10.1146/annurev-control-042820-010947
 
-
+Note that there can be some sentences that were copied from the PRISM website (e.g from the homepage, documentation, case studies) without explicit citation as we've lost track of them unintentionally. It was not in our intention to ignore who wrote what.
